@@ -1,0 +1,9 @@
+.whats-in-the-fridge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header1 {
+    color: blue;
+}
