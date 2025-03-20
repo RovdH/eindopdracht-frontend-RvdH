@@ -1,9 +1,9 @@
-// import styles from './Card.module.css';
+import styles from './Card.module.css';
 
 
 function Card() {
     return (
-        <p>Recipe Cards</p>
+        <h1 className={styles.h1Card}>Recipe Cards</h1>
     )
 }
 export default Card

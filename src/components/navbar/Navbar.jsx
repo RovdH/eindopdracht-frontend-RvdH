@@ -1,9 +1,14 @@
-// import styles from './Navbar.module.css';
+import styles from './Navbar.module.css';
+import {renderNavLinks} from "../../helpers/renderNavLinks.jsx";
+import {routes} from "../../routes/routes.jsx";
 
 
 function Navbar() {
     return (
-        <p>Navbar</p>
+        <ul>
+            {renderNavLinks(routes)}
+        </ul>
     )
 }
+
 export default Navbar
