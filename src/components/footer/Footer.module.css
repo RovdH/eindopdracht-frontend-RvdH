@@ -1,0 +1,22 @@
+.footer {
+    background-color: var(--secondary-color);
+    color: white;
+}
+.h5 {
+    color: white;
+}
+.footer__inner_wrapper {
+    margin: 0 auto;
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    max-width: 1600px;
+}
+.footer__contact {
+    font-style: normal;
+}
+span {
+    display: block;
+}

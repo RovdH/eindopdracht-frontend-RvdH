@@ -1,0 +1,37 @@
+/* InputField.module.css */
+.inputWrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.inputField {
+    background-color: var(--neutral-dark); /* Background color */
+    color: white; /* Text color */
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 15px;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+}
+
+.inputField::placeholder {
+    color: white; /* Placeholder text color */
+    opacity: 0.7; /* Slightly transparent placeholder */
+}
+
+.inputWrapper .inputIcon {
+    position: absolute;
+    left: 10px; /* Icon position */
+    color: white;
+    font-size: 1.2rem; /* Icon size */
+    pointer-events: none; /* Prevent the icon from interfering with the input */
+}
+
+/* Optional: Focus state */
+.inputField:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Focus effect */
+}

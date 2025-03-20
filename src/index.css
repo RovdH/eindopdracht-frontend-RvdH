@@ -17,7 +17,7 @@ ul, ol {
 
 a {
   text-decoration: none;
-  color: inherit; /* Links will inherit color from parent */
+  color: inherit;
 }
 
 img {
