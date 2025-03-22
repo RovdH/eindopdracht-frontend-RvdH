@@ -56,3 +56,11 @@ strong {
 em {
   font-style: italic;
 }
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  padding: 0;
+  }
+

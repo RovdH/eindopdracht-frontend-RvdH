@@ -1,0 +1,16 @@
+.nav__menu_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.nav__menu_list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.logo {
+    width: 200px;
+    height: auto;
+}

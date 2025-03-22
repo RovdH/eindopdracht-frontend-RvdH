@@ -1,0 +1,64 @@
+/* Button.module.css */
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px; /* Pill shape */
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.button:focus {
+    outline: none; /* Remove default browser outline */
+}
+
+/* Variant 1 */
+.btn_darkgreen {
+    background-color: var(--primary-color);
+    border: 2px solid white;
+}
+
+.btn_darkgreen:hover {
+    background-color: var(--primary-light);
+    border-color: var(--primary-light);
+    color: var(--secondary-color);
+}
+
+/* Variant 2 */
+.btn_lightgreen {
+    background-color: var(--primary-light);
+    border: 2px solid transparent;
+}
+
+.btn_lightgreen:hover {
+    background-color: var(--primary-color);
+    border-color: white;
+}
+
+/* Variant 3 */
+.btn_darkgray {
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn_darkgray:hover {
+    background-color: var(--highlight-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Sizes */
+.small {
+    padding: 5px 15px;
+    font-size: 0.9rem;
+}
+
+.large {
+    width: auto;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+}
