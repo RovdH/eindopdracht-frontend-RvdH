@@ -1,10 +1,9 @@
 import styles from './EmailOptin.module.css';
-import React, {useState} from 'react';
-import {FaEnvelope, FaPaperPlane} from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaEnvelope, FaPaperPlane } from 'react-icons/fa';
 import SubmitButtonSmall from "../buttons/SubmitButtonSmall.jsx";
 
 function EmailOptIn() {
-
     const [emailValue, setEmailValue] = useState('');
     const [privacyStatementValue, togglePrivacyStatementValue] = useState(false);
     const [notificationValue, setNotificationValue] = useState('');
@@ -29,6 +28,8 @@ function EmailOptIn() {
                 <fieldset>
                     <legend><h5>Subscribe for food inspiration</h5></legend>
                     <label htmlFor="email">
+                        {/* Icon placed outside input element */}
+                        <FaEnvelope className={styles.emailIcon} />
                         <input
                             type="email"
                             id="id-email-input"
@@ -36,9 +37,8 @@ function EmailOptIn() {
                             value={emailValue}
                             placeholder="Enter your e-mail"
                             onChange={(e) => setEmailValue(e.target.value)}
-                            icon={FaEnvelope}
                         />
-                        <SubmitButtonSmall onClick={handleSubmit} disabled={!privacyStatementValue}/>
+                        <SubmitButtonSmall onClick={handleSubmit} disabled={!privacyStatementValue} />
                     </label>
                     <div className={styles.checkbox__wrapper}>
                         <label htmlFor="email-optin-form-checkbox">

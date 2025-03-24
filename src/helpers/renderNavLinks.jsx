@@ -8,7 +8,7 @@ export const renderNavLinks = (routes) => {
             <li key={index}>
                 <NavLink
                     to={route.path}
-                    className={({isActive}) => (isActive ? 'active' : '')} // Updated active link handling
+                    className={({ isActive }) => (isActive ? "active" : "")}
                 >
                     {route.label}
                 </NavLink>
