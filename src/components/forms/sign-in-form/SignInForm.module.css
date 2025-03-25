@@ -1,0 +1,72 @@
+.signin__wrapper {
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.signin__wrapper form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.signin__wrapper label {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+.signin__wrapper input[type="email"] {
+    background-color: var(--neutral-dark);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 15px 15px;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.signin__wrapper input[type="email"]::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+
+.signin__wrapper input[type="email"]:focus-visible {
+    box-shadow: 0 0 10px rgba(123, 179, 139, 0.9);
+}
+
+.email__signin_wrapper .checkbox__wrapper {
+    font-size: 0.9rem;
+}
+
+.notificationValue {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+.notificationSuccess {
+    background-color: var(--primary-color);  /* Green or blue color for success */
+}
+
+/* Error notification style */
+.notificationError {
+    background-color: var(--highlight-dark);  /* Red or orange color for error */
+}
+
+.signin__email_icon{
+    position: absolute;
+    left: 15px;
+    top: 32%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 16px;
+}
+
+.email_input {
+    padding-left: 25px;
+    width: 100%;
+    text-indent: 20px;
+}

@@ -1,6 +1,7 @@
 import styles from './EmailOptin.module.css';
 import React, { useState } from 'react';
-import SubmitButtonSmall from "../buttons/SubmitButtonSmall.jsx";
+import SubmitButtonSmall from "../../buttons/SubmitButtonSmall.jsx";
+import {FaEnvelope} from "react-icons/fa";
 
 function EmailOptIn() {
     const [emailValue, setEmailValue] = useState('');
@@ -27,13 +28,14 @@ function EmailOptIn() {
                 <fieldset>
                     <legend><h5>Subscribe for food inspiration</h5></legend>
                     <label htmlFor="email">
-                        <input
+                        <FaEnvelope className={styles.email__optin_icon}/> <input
                             type="email"
                             id="id-email-input"
                             name="email-input"
                             value={emailValue}
-                            placeholder="Enter your e-mail"
+                            placeholder="    Enter your e-mail"
                             onChange={(e) => setEmailValue(e.target.value)}
+                            className={styles.email_input}
                         />
                         <SubmitButtonSmall onClick={handleSubmit} disabled={!privacyStatementValue} />
                     </label>

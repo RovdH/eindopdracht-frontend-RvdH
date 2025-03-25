@@ -18,15 +18,15 @@ function Navbar() {
                 {renderNavLinks(routes)}
             </ul>
             <ul className={styles.nav__menu_btn}>
-                <li><Button variant="btn_darkgreen" to="/signup">Sign Up</Button></li>
-                <li><Button variant="btn_lightgreen" to="/signin">Sign In</Button></li>
+                <li><Button variant="btn_darkgreen" to="/sign-up">Sign Up</Button></li>
+                <li><Button variant="btn_lightgreen" to="/sign-in">Sign In</Button></li>
             </ul>
             {menuOpen && (
                 <div className={styles.mobile_menu}>
                     <ul>
                         {renderNavLinks(routes)}
-                        <li><Button variant="btn_darkgreen" to="/signup">Sign Up</Button></li>
-                        <li><Button variant="btn_lightgreen" to="/signin">Sign In</Button></li>
+                        <li><Button variant="btn_darkgreen" to="/sign-up">Sign Up</Button></li>
+                        <li><Button variant="btn_lightgreen" to="/sign-in">Sign In</Button></li>
                     </ul>
                 </div>
             )}

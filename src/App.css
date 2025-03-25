@@ -78,7 +78,7 @@ h6 {
   --tertiary-color: #e0ffeb;
   --highlight-color: #cc6868;
 
-  --primary-light: #7bb38b;
+  --primary-light: #dfffea;
   --primary-dark: #4f7d5f;
   --secondary-light: #6a7f8e;
   --highlight-light: #f7b3b3;
@@ -86,4 +86,5 @@ h6 {
 
   --neutral-light: #f4f4f4;
   --neutral-dark: #32404E;
+
 }

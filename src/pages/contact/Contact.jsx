@@ -1,9 +1,9 @@
-import styles from './Contact.module.css';
-
+// import styles from './Contact.module.css';
+import TitleBar from "../../components/titlebar/TitleBar.jsx";
 
 function Contact() {
     return (
-        <h1 className={styles.h1contact}> Contact </h1>
+     <TitleBar/>
     )
 }
 export default Contact
