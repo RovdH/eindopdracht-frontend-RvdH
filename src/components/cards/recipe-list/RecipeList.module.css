@@ -1,5 +1,14 @@
-.recipe-list {
+.recipe_list {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
+    margin: 0 5%;
+    align-items: flex-start;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+@media (min-width: 768px) {
+    .recipe_list > * {
+        flex: 1 1 calc(29% - 15px);
+    }
 }

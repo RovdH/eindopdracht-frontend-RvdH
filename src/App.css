@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: #333;
+  color: var(--secondary-color);
 }
 
 h1 {
@@ -56,6 +56,8 @@ h3 {
 h4 {
   font-size: 2rem;
   line-height: 1.2;
+  font-weight: 400;
+  color: var(--primary-dark);
 }
 
 h5 {
@@ -71,15 +73,17 @@ h6 {
 
 /*--------------------------- GLOBAL COLORS----------------------------*/
 :root {
-  --primary-color: #7bb38b; /* Primary Color */
-  --secondary-color: #495d70; /* Secondary Color */
-  --tertiary-color: #e0ffeb; /* Light background or highlight */
-  --highlight-color: #cc6868; /* Highlight Color */
-  --neutral-light: #f4f4f4; /* Light background color */
-  --neutral-dark: #32404E; /* Dark text color */
+  --primary-color: #7bb38b;
+  --secondary-color: #495d70;
+  --tertiary-color: #e0ffeb;
+  --highlight-color: #cc6868;
 
-  --primary-light: #dfffea;  /* Lightened primary color */
-  --secondary-light: #6a7f8e;  /* Lightened secondary color */
-  --highlight-light: #f7b3b3;  /* Lightened highlight color */
-  --highlight-dark: #a33b3b; /* Darkened highlight color */
+  --primary-light: #7bb38b;
+  --primary-dark: #4f7d5f;
+  --secondary-light: #6a7f8e;
+  --highlight-light: #f7b3b3;
+  --highlight-dark: #a33b3b;
+
+  --neutral-light: #f4f4f4;
+  --neutral-dark: #32404E;
 }

@@ -1,54 +1,34 @@
-/* src/styles.css */
-
 .recipe__card_wrapper {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    width: 250px;
-    margin: 16px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    width: 100%;
+    margin: 15px;
+    text-align: left;
+    color: var(--secondary-color);
 }
 
 .recipe__card_image {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
+    border-radius: 15px;
+    aspect-ratio: 16/9;
+    background-color: var(--primary-light);
 }
 
 .recipe__card_title {
     font-size: 1.2em;
-    margin-top: 8px;
+    margin-top: 5px;
+    line-height: 1;
 }
 
-.favorite_btn {
-    background: none;
-    border: none;
-    font-size: 1.2em;
-    cursor: pointer;
-    margin: 8px 0;
+.icon__clock {
+    color: var(--primary-dark);
+    font-size: 20px;
+    line-height: 0;
+    margin-bottom: -5px;
+    margin-right: 5px;
 }
 
-.favorite_btn.favorited {
-    color: red;
-}
-
-.recipe__card_rating {
-    margin-top: 8px;
-}
-
-.recipe__card_rating_stars {
-    color: gold;
-}
-
-.recipe__card_prep_time,
-.recipe__card_cooking_time {
-    font-size: 0.9em;
-    margin-top: 8px;
-}
-
-.recipe-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+@media (max-width: 768px) {
+    .recipe__card_wrapper {
+        margin: 15px 10px;
+    }
 }

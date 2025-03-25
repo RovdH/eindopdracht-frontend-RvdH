@@ -1,6 +1,5 @@
 import styles from './EmailOptin.module.css';
 import React, { useState } from 'react';
-import { FaEnvelope, FaPaperPlane } from 'react-icons/fa';
 import SubmitButtonSmall from "../buttons/SubmitButtonSmall.jsx";
 
 function EmailOptIn() {
@@ -28,8 +27,6 @@ function EmailOptIn() {
                 <fieldset>
                     <legend><h5>Subscribe for food inspiration</h5></legend>
                     <label htmlFor="email">
-                        {/* Icon placed outside input element */}
-                        <FaEnvelope className={styles.emailIcon} />
                         <input
                             type="email"
                             id="id-email-input"

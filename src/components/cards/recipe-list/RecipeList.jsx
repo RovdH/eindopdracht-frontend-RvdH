@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../../../helpers/api.js";
 import RecipeCard from "../RecipeCard.jsx";
+import styles from "./RecipeList.module.css"
 
 const RecipeList = () => {
     const [recipes, setRecipes] = useState([]);
@@ -10,12 +11,10 @@ const RecipeList = () => {
             try {
                 const response = await api.get('/recipes/random', {
                     params: {
-                        number: 1,  // You are requesting only 1 recipe, change if needed
+                        number: 6,
                     },
                 });
-                console.log("API Response:", response.data);  // Log the full response
-                console.log("Recipe Data:", response.data.recipes);  // Log the correct recipes array
-                setRecipes(response.data.recipes);  // Set recipes with the correct data
+                setRecipes(response.data.recipes);
             } catch (error) {
                 console.error('Error fetching recipes:', error);
             }
@@ -24,10 +23,8 @@ const RecipeList = () => {
         fetchRecipes();
     }, []);
 
-    console.log("Recipes State in Render:", recipes);  // Log the recipes state in render
-
     return (
-        <div className="recipe-list">
+        <div className={styles.recipe_list}>
             {recipes && recipes.length > 0 ? (
                 recipes.map((recipe) => (
                     <RecipeCard key={recipe.id} recipe={recipe} />
