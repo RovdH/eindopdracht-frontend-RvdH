@@ -1,5 +1,5 @@
 // import styles from './Whats-in-the-fridge.module.css';
-import TitleBar from "../../components/titlebar/TitleBar.jsx";
+import TitleBar from "../../components/sections/titlebar/TitleBar.jsx";
 
 function WhatsInTheFridge() {
     return (

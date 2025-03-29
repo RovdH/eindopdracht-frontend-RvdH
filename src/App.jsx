@@ -1,6 +1,6 @@
 import './App.css'
-import Navbar from "./components/navbar/Navbar.jsx";
-import Footer from "./components/footer/Footer.jsx";
+import Navbar from "./components/sections/navbar/Navbar.jsx";
+import Footer from "./components/sections/footer/Footer.jsx";
 import {Route, Routes} from "react-router-dom";
 import {routes} from "./routes/routes.jsx";
 import {usePageTitle} from "./helpers/UsePageTitle.jsx";

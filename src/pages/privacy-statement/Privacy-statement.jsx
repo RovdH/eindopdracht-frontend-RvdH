@@ -1,4 +1,4 @@
-import TitleBar from "../../components/titlebar/TitleBar.jsx";
+import TitleBar from "../../components/sections/titlebar/TitleBar.jsx";
 
 function PrivacyStatement() {
     return (

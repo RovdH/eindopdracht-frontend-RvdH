@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './TitleBar.module.css';
-import {usePageTitle} from "../../helpers/UsePageTitle.jsx";
+import {usePageTitle} from "../../../helpers/UsePageTitle.jsx";
 
 
 function TitleBar() {
