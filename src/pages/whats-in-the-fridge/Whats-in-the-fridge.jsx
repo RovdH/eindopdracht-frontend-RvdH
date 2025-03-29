@@ -1,8 +1,9 @@
-import styles from './Whats-in-the-fridge.module.css';
+// import styles from './Whats-in-the-fridge.module.css';
+import TitleBar from "../../components/titlebar/TitleBar.jsx";
 
 function WhatsInTheFridge() {
     return (
-        <h1 className={styles.h1witf}> Whats in the Fridge?! </h1>
+        <TitleBar/>
     )
 }
 

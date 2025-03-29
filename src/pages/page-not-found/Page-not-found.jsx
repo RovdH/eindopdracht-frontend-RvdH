@@ -1,9 +1,10 @@
-import styles from './Page-not-found.module.css';
+// import styles from './Page-not-found.module.css';
+import TitleBar from "../../components/titlebar/TitleBar.jsx";
 
 
 function PageNotFound() {
     return (
-        <h1 className={styles.h1pnf}> 404 Page Not Found </h1>
+        <TitleBar/>
     )
 }
 export default PageNotFound

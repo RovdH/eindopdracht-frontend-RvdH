@@ -1,6 +1,8 @@
+import TitleBar from "../../components/titlebar/TitleBar.jsx";
+
 function PrivacyStatement() {
     return (
-        <h1> Privacy Statement </h1>
+     <TitleBar/>
     )
 }
 export default PrivacyStatement

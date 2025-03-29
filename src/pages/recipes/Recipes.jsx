@@ -1,9 +1,12 @@
-import styles from './Recipes.module.css';
-
+import RecipeList from '../../components/cards/recipe-list/RecipeList';
+import TitleBar from "../../components/titlebar/TitleBar.jsx";
 
 function Recipes() {
     return (
-        <h1 className={styles.h1recipes}> Recipes </h1>
+        <>
+            <TitleBar />
+        <RecipeList />
+        </>
     )
 }
-export default Recipes
+export default Recipes;

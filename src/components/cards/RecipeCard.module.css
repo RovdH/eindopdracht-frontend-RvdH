@@ -1,0 +1,34 @@
+.recipe__card_wrapper {
+    padding: 5px;
+    width: 100%;
+    margin: 15px;
+    text-align: left;
+    color: var(--secondary-color);
+}
+
+.recipe__card_image {
+    width: 100%;
+    border-radius: 15px;
+    aspect-ratio: 16/9;
+    background-color: var(--primary-light);
+}
+
+.recipe__card_title {
+    font-size: 1.2em;
+    margin-top: 5px;
+    line-height: 1;
+}
+
+.icon__clock {
+    color: var(--primary-dark);
+    font-size: 20px;
+    line-height: 0;
+    margin-bottom: -5px;
+    margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+    .recipe__card_wrapper {
+        margin: 15px 10px;
+    }
+}

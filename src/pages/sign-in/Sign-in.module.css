@@ -1,3 +1,98 @@
-.h1signin {
-    color: yellow;
+.signin__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 90vh;
+}
+.signin__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0 10%;
+}
+.signin__quote {
+    color: var(--highlight-color);
+}
+.signin__text {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.signin__link {
+    color: var(--primary-dark);
+    text-decoration: underline;
+    font-weight: bold;
+}
+.signin__link:hover {
+    color: var(--secondary-color);
+}
+
+.signin__visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #FFC7CA, #DFFFEA);
+    width: 100%;
+    padding-right: 50px;
+}
+
+.signin__mobile_header {
+    display: none;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .signin__wrapper {
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+    }
+    .signin__content {
+        align-items: center;
+        margin: 5% 0;
+    }
+    .signin__deskimg {
+        display: none;
+    }
+
+    .signin__mobimg {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .signin__mobile_header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        width: 100%;
+        background-image: url('/src/assets/images/image-kipsalade.png'); /* Add image here */
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+    .signin__mobile_header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent, #7BB48B);
+        opacity: 0.7;
+        z-index: 0;
+    }
+    .signin__mobile_heading{
+        margin-top: -30%;
+        margin-bottom: 10%;
+        z-index: 2;
+    }
+    .signin__title, .signin__quote {
+        color: white;
+    }
+
 }
