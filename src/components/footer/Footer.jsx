@@ -1,6 +1,6 @@
 import styles from './Footer.module.css';
 import {routes} from "../../routes/routes.jsx";
-import {renderNavLinks} from "../../helpers/renderNavLinks.jsx";
+import {renderNavLinks} from "../../helpers/RenderNavLinks.jsx";
 import EmailOptin from "../forms/email-opt-in/EmailOptin.jsx";
 
 function Footer() {

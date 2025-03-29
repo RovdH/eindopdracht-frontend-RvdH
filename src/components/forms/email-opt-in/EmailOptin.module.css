@@ -50,12 +50,12 @@
     text-align: center;
 }
 .notificationSuccess {
-    background-color: var(--primary-color);  /* Green or blue color for success */
+    background-color: var(--primary-color);
 }
 
-/* Error notification style */
+
 .notificationError {
-    background-color: var(--highlight-dark);  /* Red or orange color for error */
+    background-color: var(--highlight-dark);
 }
 
 .email__optin_icon {

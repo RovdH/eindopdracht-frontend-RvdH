@@ -7,6 +7,7 @@ import {usePageTitle} from "./helpers/UsePageTitle.jsx";
 
 function App() {
     usePageTitle();
+
     return (
       <>
       <Navbar/>

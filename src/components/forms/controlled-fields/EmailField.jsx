@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const EmailField = ({ label, successMessage, errorMessage, onChange, onValidationChange, ...props }) => {
+const EmailField = ({ successMessage, errorMessage, onChange, onValidationChange, ...props }) => {
     const [emailValue, setEmailValue] = useState('');
     const [notificationValue, setNotificationValue] = useState('');
     const [isSuccess, setIsSuccess] = useState(false);
@@ -10,7 +10,7 @@ const EmailField = ({ label, successMessage, errorMessage, onChange, onValidatio
         setEmailValue(value);
 
         if (onChange) {
-            onChange(value);
+            onChange(e);
         }
 
         const emailRegex = /\S+@\S+\.\S+/;
@@ -28,14 +28,15 @@ const EmailField = ({ label, successMessage, errorMessage, onChange, onValidatio
     };
 
     return (
-        <div {...props}>
+        <div>
             <label>
-                {label || 'Email Address'}
                 <input
+                    name="name"
                     type="email"
                     value={emailValue}
                     onChange={handleEmailChange}
-                    placeholder="Enter your email"
+                    className={props.className}
+                    placeholder="Enter your E-mail"
                 />
             </label>
             {notificationValue && (
