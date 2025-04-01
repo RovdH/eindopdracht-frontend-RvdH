@@ -1,4 +1,4 @@
-import RecipeList from '../../components/cards/recipe-list/RecipeList';
+import RecipeListAll from '../../components/cards/recipe-list/RecipeListAll.jsx';
 import TitleBar from "../../components/sections/titlebar/TitleBar.jsx";
 import {useState} from "react";
 import styles from "./Recipes.module.css";
@@ -25,7 +25,7 @@ function Recipes() {
                 filters={filters}
                 />
             </section>
-            <RecipeList searchQuery={searchQuery} filters={filters} number={number} setNumber={setNumber} />
+            <RecipeListAll searchQuery={searchQuery} filters={filters} number={number} setNumber={setNumber} />
         </>
     )
 }

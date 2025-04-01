@@ -28,6 +28,16 @@
     margin-right: 5px;
 }
 
+.recipe__card_witf {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 20px;
+    align-items: flex-start;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
 .favorite__button {
     position: absolute;
     top: 5%;

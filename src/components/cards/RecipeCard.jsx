@@ -9,22 +9,41 @@ import {FavContext, FavoritesProvider} from "../context/favorite-recipes/FavCont
 const createSlug = (title) => {
     return title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 };
-function RecipeCard({ recipe }) {
-const slug = createSlug(recipe.title);
-    const { favorites, toggleFavorite } = useContext(FavContext);
+const RecipeCard = ({recipe}) => {
+    const slug = createSlug(recipe.title);
+    const {favorites, toggleFavorite} = useContext(FavContext);
     const isFavorite = favorites.some((fav) => fav.id === recipe.id);
 
     return (
-       <section className={styles.recipe__card_wrapper}> <Link to={`/recipe/${recipe.id}/${slug}`} className={styles.recipe__card_link}>
+        <section className={styles.recipe__card_wrapper}><Link to={`/recipe/${recipe.id}/${slug}`}
+                                                               className={styles.recipe__card_link}>
             <img src={recipe.image} alt={recipe.title} className={styles.recipe__card_image}/>
             <h4 className={styles.recipe__card_title}>{recipe.title}</h4></Link>
-            <StarRating score={recipe.spoonacularScore} />
-            <span className={styles.recipe__card_time}><FaClock className={styles.icon__clock}/>
-                {recipe.readyInMinutes} min prep time. {recipe.cookingMinutes || "Zero"} min oven time
-            </span>
-           <button onClick={() => toggleFavorite(recipe)} className={styles.favorite__button}>
-               {isFavorite ? <FaHeart color="red" className={styles.icon__heart}/> : <FaRegHeart className={styles.icon__heart_outline}/>}
-           </button>
+
+            {/* All recipes area */}
+            {recipe.spoonacularScore && <StarRating score={recipe.spoonacularScore}/>}
+            {(recipe.readyInMinutes || recipe.cookingMinutes) && (
+                <span className={styles.recipe__card_time}><FaClock className={styles.icon__clock}/>
+                    {recipe.readyInMinutes ? `${recipe.readyInMinutes} min prep time.` : ""}
+                    {recipe.cookingMinutes ? ` ${recipe.cookingMinutes} min oven time` : ""} </span>
+            )}
+
+            {/*Whats in the fridge area */}
+            <section className={styles.recipe__card_witf}>
+                {recipe.missedIngredients && recipe.missedIngredients.length > 0 && (
+                    <ul className={styles.recipe__ingredients}>
+                        <strong>Missing Items:</strong>
+                        {recipe.missedIngredients.slice(0, 5).map((ingredient, index) => (
+                            <li key={index}>{ingredient.original}</li>
+                        ))}
+                    </ul>
+                )}
+                {recipe.likes > 0 && (<span className={styles.recipe__likes}>❤️ {recipe.likes} Kudo's</span>)}
+            </section>
+            <button onClick={() => toggleFavorite(recipe)} className={styles.favorite__button}>
+                {isFavorite ? <FaHeart color="red" className={styles.icon__heart}/> :
+                    <FaRegHeart className={styles.icon__heart_outline}/>}
+            </button>
         </section>
     )
 }

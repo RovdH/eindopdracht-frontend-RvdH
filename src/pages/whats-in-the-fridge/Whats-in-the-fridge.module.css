@@ -1,3 +1,6 @@
-.h1witf {
-    color: blue;
+.witf__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }

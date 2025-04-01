@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/auth/AuthContext.jsx";
 import SignInButton from "../../buttons/SigninButton.jsx";
 import { useNavigate } from "react-router-dom";
 
-function SignInForm() {
+const SignInForm = () => {
     const { signin } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

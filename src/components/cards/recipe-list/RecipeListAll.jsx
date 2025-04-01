@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import api from "../../../helpers/api.js";
 import RecipeCard from "../RecipeCard.jsx";
-import styles from "./RecipeList.module.css"
+import styles from "./RecipeListAll.module.css"
 import Button from "../../buttons/Button.jsx";
 
-const RecipeList = ({searchQuery, filters, number = 9, setNumber}) => {
+const RecipeListAll = ({searchQuery, filters, number = 9, setNumber}) => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -43,20 +43,26 @@ const RecipeList = ({searchQuery, filters, number = 9, setNumber}) => {
     }, [searchQuery, filters, number]);
 
     return (
-        <div className={styles.recipe_list}>
+        <div className={styles.recipe__wrapper}>
+            <section className={styles.recipe_list}>
             {loading ? <p>Loading recipes...</p> : (
                 recipes.length > 0 ? (
                     recipes.map((recipe) => (
                         <RecipeCard key={recipe.id} recipe={recipe}/>
                     ))
                 ) : (
-                    <p>No recipes found.</p>
+                    <p className={styles.recipe__list_notfound}>No recipes found.</p>
                 )
             )}
+            </section>
+    <section className={styles.recipe__list_more}>
+        {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
+        {!loading && recipes.length > 0 && (
             <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 6)}>Load More</Button>
-            {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
+        )}
+    </section>
         </div>
     );
 };
 
-export default RecipeList;
+export default RecipeListAll;

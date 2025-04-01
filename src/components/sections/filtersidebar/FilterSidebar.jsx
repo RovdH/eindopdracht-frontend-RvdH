@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../../buttons/Button.jsx";
-import {FaCross} from "react-icons/fa6";
+import {FaCheck, FaXmark} from "react-icons/fa6";
+import styles from "./FilterSidebar.module.css"
 
 const FilterSidebar = ({ onUpdateIngredients }) => {
     const [ingredient, setIngredient] = useState("");
@@ -24,35 +25,36 @@ const FilterSidebar = ({ onUpdateIngredients }) => {
     };
 
     return (
-        <div>
-            <h2>What's in the fridge</h2>
-            <div>
-                <input
+        <section className={styles.sidebar__wrapper}>
+            <h3 className={styles.sidebar__title}>What items do you have in home?</h3>
+            <div className={styles.sidebar__input}>
+                <input className={styles.sidebar__input_field}
                     type="text"
                     value={ingredient}
                     onChange={(e) => setIngredient(e.target.value)}
                     placeholder="Add an ingredient"
                 />
                 <Button variant={"btn_darkgreen"} onClick={addIngredient}>
-                    Add
+                    Add...
                 </Button>
             </div>
-            <ul>
+            <h6>My Added Items</h6>
+            <ul className={styles.sidebar__list}>
                 {ingredients.map((item) => (
-                    <li
+                    <li className={styles.sidebar__list_items}
                         key={item}
                     >
-                        {item}
+                        <FaCheck size={40} className={styles.sidebar__list_icon_check}/><p>{item}</p>
                         <button
                             onClick={() => removeIngredient(item)}
-                            className="text-red-500 hover:text-red-700"
+                            className={styles.sidebar__list_icon_x}
                         >
-                            <FaCross size={16} />
+                            <FaXmark size={20} />
                         </button>
                     </li>
                 ))}
             </ul>
-        </div>
+        </section>
     );
 };
 

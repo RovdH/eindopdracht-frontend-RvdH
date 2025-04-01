@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import api from "../../../helpers/api.js";
 import RecipeCard from "../RecipeCard.jsx";
-import styles from "./RecipeListAll.module.css"
+import styles from "./RecipeListFridge.module.css"
 import Button from "../../buttons/Button.jsx";
 
-const RecipeListFridge = ({ ingredients = [], number = 9, setNumber}) => {
+const RecipeListFridge = ({ingredients = [], number = 8, setNumber}) => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -22,7 +22,7 @@ const RecipeListFridge = ({ ingredients = [], number = 9, setNumber}) => {
             console.log("API Request Params:", params);
 
             try {
-                const response = await api.get('/recipes/findByIngredients', { params });
+                const response = await api.get('/recipes/findByIngredients', {params});
                 console.log("API Response:", response.data);
                 setRecipes(response.data || []);
             } catch (error) {
@@ -37,18 +37,28 @@ const RecipeListFridge = ({ ingredients = [], number = 9, setNumber}) => {
     }, [ingredients, number]);
 
     return (
-        <div className={styles.recipe_list}>
-            {loading ? <p>Loading...</p> : (
-                recipes.length > 0 ? (
-                    recipes.map((recipe) => (
-                        <RecipeCard key={recipe.id} recipe={recipe}/>
-                    ))
-                ) : (
-                    <p>Add or remove ingredients to receive a recipe.</p>
-                )
-            )}
-            <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 6)}>Load More</Button>
-            {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
+        <div className={styles.recipe__wrapper}>
+            <section className={styles.recipe_list}>
+                {loading ? <p>Loading...</p> : (
+                    recipes.length > 0 ? (
+                        recipes.map((recipe) => (
+                            <RecipeCard key={recipe.id} recipe={recipe}/>
+                        ))
+                    ) : (
+                        <p className={styles.recipe__list_notfound}>Add or remove ingredients to receive a recipe.</p>
+                    )
+                )}
+
+            </section>
+
+
+                <section className={styles.recipe__list_more}>
+                    {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
+                    {!loading && recipes.length > 0 && (
+                    <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 6)}>Load More</Button>
+                    )}
+                </section>
+
         </div>
     );
 };

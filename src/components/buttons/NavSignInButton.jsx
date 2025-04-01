@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import { AuthContext } from "../context/auth/AuthContext.jsx";
 import SignInButton from "./SignInButton.jsx";
 
-function NavSigninButton() {
+const NavSigninButton = () => {
     const { isAuth, signout } = useContext(AuthContext);
     const navigate = useNavigate();
 
