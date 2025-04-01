@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import api from "../../../helpers/api.js";
 import RecipeCard from "../RecipeCard.jsx";
 import styles from "./RecipeList.module.css"
+import Button from "../../buttons/Button.jsx";
 
 const RecipeList = ({searchQuery, filters, number = 9, setNumber}) => {
     const [recipes, setRecipes] = useState([]);
@@ -21,6 +22,7 @@ const RecipeList = ({searchQuery, filters, number = 9, setNumber}) => {
                 number: number,
                 ...filters,
                 addRecipeInformation: true,
+                fillIngredients: false,
             };
 
             console.log("API Request Params:", params);
@@ -51,7 +53,7 @@ const RecipeList = ({searchQuery, filters, number = 9, setNumber}) => {
                     <p>No recipes found.</p>
                 )
             )}
-            <button onClick={() => setNumber(number + 6)}>Load More</button>
+            <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 6)}>Load More</Button>
             {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
         </div>
     );

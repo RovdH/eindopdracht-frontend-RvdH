@@ -2,7 +2,7 @@ import RecipeList from '../../components/cards/recipe-list/RecipeList';
 import TitleBar from "../../components/sections/titlebar/TitleBar.jsx";
 import {useState} from "react";
 import styles from "./Recipes.module.css";
-import SearchFilters from "../../components/sections/filterbar/SearchFilters.jsx";
+import SearchFilters from "../../components/sections/filterbartop/SearchFilters.jsx";
 
 function Recipes() {
     const [searchQuery, setSearchQuery] = useState("");
