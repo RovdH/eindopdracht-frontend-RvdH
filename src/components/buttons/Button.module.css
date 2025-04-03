@@ -52,6 +52,16 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Variant 4 */
+.btn_lightgray {
+    background-color: var(--neutral-light);
+    color: var(--secondary-color);
+    border: 2px solid lightgrey;
+}
+.btn_lightgray:focus, .btn_lightgray:hover {
+    border-color: var(--primary-color);
+}
+
 /* Sizes */
 .small {
     padding: 5px 15px;

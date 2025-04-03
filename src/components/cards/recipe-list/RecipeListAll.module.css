@@ -13,7 +13,6 @@
     margin: 0 5%;
     gap: 15px;
     flex-wrap: wrap;
-    width: 30%;
 }
 
 .recipe__list_notfound {
@@ -39,14 +38,6 @@
     width: auto;
     border-radius: 10px;
 }
-@media (min-width: 768px) {
-    .recipe_list > * {
-        flex: 1 1 calc(32% - 15px);
-    }
-}
-
-
-
 @media (min-width: 768px) {
     .recipe_list > * {
         flex: 1 1 calc(29% - 15px);

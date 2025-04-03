@@ -10,7 +10,7 @@ function App() {
 
     return (
       <>
-      <Navbar/>
+ <Navbar/>
     <main>
         <Routes>
             {routes.map((route, index) => (
@@ -18,7 +18,7 @@ function App() {
             ))}
         </Routes>
     </main>
-          <Footer/>
+          <footer><Footer/></footer>
       </>
   )
 }
