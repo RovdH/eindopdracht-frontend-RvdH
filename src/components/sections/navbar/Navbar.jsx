@@ -1,12 +1,12 @@
 import {useState} from "react";
 import styles from './Navbar.module.css';
-import {renderNavLinks} from "../../helpers/RenderNavLinks.jsx";
-import {routes} from "../../routes/routes.jsx";
+import {renderNavLinks} from "../../../helpers/RenderNavLinks.jsx";
+import {routes} from "../../../routes/routes.jsx";
 import LogoLazyChef from '/src/assets/logo/logo_lazychef.svg?react';
-import Button from "../buttons/Button.jsx";
+import Button from "../../buttons/Button.jsx";
 import {IoClose, IoMenu} from "react-icons/io5";
 
-function Navbar() {
+const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     return (
         <section className={styles.nav__menu_wrapper}>

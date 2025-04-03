@@ -2,7 +2,7 @@ import React from 'react';
 import { FaPaperPlane } from 'react-icons/fa';
 import styles from './SubmitButtonSmall.module.css';
 
-function SubmitButtonSmall({ disabled }) {
+const SubmitButtonSmall = ({ disabled }) => {
     return (
         <button
             type="submit"

@@ -1,4 +1,5 @@
 .recipe__card_wrapper {
+    position: relative;
     padding: 5px;
     width: 100%;
     margin: 15px;
@@ -25,6 +26,28 @@
     line-height: 0;
     margin-bottom: -5px;
     margin-right: 5px;
+}
+
+.recipe__card_witf {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 20px;
+    align-items: flex-start;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.favorite__button {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    padding: 10px;
+    background-color: white;
+    font-size: 1rem;
+    line-height: 0;
+    border: 1px solid var(--primary-color);
+    border-radius: 50%;
 }
 
 @media (max-width: 768px) {

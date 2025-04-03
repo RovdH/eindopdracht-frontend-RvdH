@@ -1,0 +1,12 @@
+.profile__wrapper
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 20px;
+    width: 100%;
+
+}
+.myrecipes__list {
+    background-color: var(--neutral-light);
+}

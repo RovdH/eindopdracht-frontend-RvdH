@@ -1,5 +1,5 @@
 // import styles from './Contact.module.css';
-import TitleBar from "../../components/titlebar/TitleBar.jsx";
+import TitleBar from "../../components/sections/titlebar/TitleBar.jsx";
 
 function Contact() {
     return (

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import SubmitButtonSmall from "../../buttons/SubmitButtonSmall.jsx";
 import {FaEnvelope} from "react-icons/fa";
 
-function EmailOptIn() {
+const EmailOptIn = () => {
     const [emailValue, setEmailValue] = useState('');
     const [privacyStatementValue, togglePrivacyStatementValue] = useState(false);
     const [notificationValue, setNotificationValue] = useState('');

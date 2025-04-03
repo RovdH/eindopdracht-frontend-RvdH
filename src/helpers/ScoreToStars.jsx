@@ -3,7 +3,7 @@ import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 export const getStarRating = (score) => (score / 100) * 5;
 
 export const StarRating = ({ score }) => {
-    const stars = getStarRating(score); // Convert score (0-100) to star rating (0-5)
+    const stars = getStarRating(score);
 
     return (
         <div style={{ display: "flex", gap: "10px", margin: "10px 0" }}>
