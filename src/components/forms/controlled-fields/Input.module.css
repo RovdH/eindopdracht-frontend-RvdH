@@ -1,0 +1,15 @@
+.input_field {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    margin: 5px 0;
+    background: #e7e7e7;
+    outline: none;
+    transition: outline 0.3s ease;
+}
+
+.input_field:hover,
+.input_field:focus {
+    outline: 2px solid var(--primary-color);
+}

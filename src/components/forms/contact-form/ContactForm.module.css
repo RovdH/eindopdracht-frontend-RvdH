@@ -1,0 +1,37 @@
+.contact__form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 30px;
+    width: 100%;
+    border: 2px solid var(--primary-color);
+}
+
+.contact__form_names {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.contact__form_errorMessage {
+    color: white;
+    font-size: 1rem;
+    margin: 10px 0;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    background-color: var(--highlight-dark);
+}
+
+.contact__form_notify {
+    color: var(--secondary-color);
+    background-color: var(--primary-light);
+    font-size: 1rem;
+    margin: 10px 0;
+    text-align: center;
+    width: 100%;
+}

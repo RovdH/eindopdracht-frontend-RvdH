@@ -1,0 +1,34 @@
+.talkto_us_wrapper {
+ display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    border-radius: 30px;
+    width: 100%;
+    color: var(--secondary-color);
+    background-color: var(--primary-light);
+}
+.talkto_us_h3 {
+    font-size: 1.5rem;
+}
+
+.talkto_us_h4 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.talkto_us_email, .talkto_us_phone {
+display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.talkto_us_icon {
+    border-radius: 50%;
+    color: var(--secondary-light);
+    background-color: var(--neutral-dark);
+}
+.talkto_us_span {
+    font-size: 1.2rem;
+}
