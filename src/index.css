@@ -11,6 +11,10 @@ body {
   line-height: 1.5;
 }
 
+body, html {
+  overflow-x: hidden;
+}
+
 ul, ol {
   list-style: none;
 }
@@ -41,6 +45,8 @@ button {
   background: none;
   cursor: pointer;
 }
+
+
 
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration,

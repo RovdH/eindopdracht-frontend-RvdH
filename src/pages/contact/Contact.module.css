@@ -1,3 +1,9 @@
-.h1contact {
-    color: pink;
+.contact__main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 100%;
+    margin: 30px 30px;
+    column-gap: 50px;
 }

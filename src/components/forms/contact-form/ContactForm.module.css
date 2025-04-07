@@ -1,0 +1,58 @@
+.contact__form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 30px;
+    width: 100%;
+    border: 2px solid var(--primary-color);
+    box-sizing: border-box;
+}
+
+.contact__field_input {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.contact__input_wrapper {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.contact__field_icon {
+    position: absolute;
+    top: 45px;
+    left: 12px;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    z-index: 1;
+    pointer-events: none;
+    font-size: 1rem;
+}
+
+.contact__field_input {
+    width: 100%;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.contact__form_errorMessage {
+    color: white;
+    font-size: 1rem;
+    margin-top: 6px;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    background-color: var(--highlight-dark);
+}
+
+.contact__form_notify {
+    color: var(--secondary-color);
+    background-color: var(--primary-light);
+    font-size: 1rem;
+    margin: 10px 0;
+    text-align: center;
+    width: 100%;
+}

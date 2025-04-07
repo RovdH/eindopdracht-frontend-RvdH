@@ -1,3 +1,115 @@
-.h1home {
-    color: green;
+.home__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
+
+.home__header_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 15% 5% 10% 5%;
+    align-items: center;
+    width: 100%;
+    background-image: url('/src/assets/images/image (2).png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 0;
+}
+.home__header_wrapper:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent, #7BB48B);
+        opacity: 0.7;
+        z-index: 1;
+}
+.home__header_text {
+    color: white;
+    z-index: 1;
+}
+
+.home__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: -9%;
+}
+
+.home__form_wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 50px 100px;
+    align-items: stretch;
+    box-shadow: 0 4px 15px 0 rgba(123, 180, 139, 0.40);
+    border-radius: 25px;
+    min-width: 600px;
+    z-index: 5;
+    background-color: white;
+}
+
+.home__form_title {
+    font-size: 1.5rem;
+    color: var(--highlight-color);
+    font-weight: bold;
+    align-self: center;
+}
+
+.home__form_label {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin: 1.5% 0;
+}
+
+.home__form_select {
+    padding: 10px 20px 10px 20px;
+    background-color: var(--neutral-light);
+    color: var(--secondary-color);
+    border: 2px solid lightgrey;
+    border-radius: 25px;
+    font-size: 18px;
+    transition: border 0.5s ease;
+    margin: 2% 0;
+}
+
+.home__form_btnfields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.home__form_select:focus, .home__form_select:hover {
+    border-color: var(--primary-color);
+}
+
+.home__form_result, .home__form_loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 0;
+}
+
+.home__latest_recipelist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin-top: 5%;
+    padding: 2% 0;
+    background-color: var(--primary-light);
+}
+
+

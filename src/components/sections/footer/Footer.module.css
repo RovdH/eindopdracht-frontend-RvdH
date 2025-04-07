@@ -1,5 +1,6 @@
 .footer {
     background-color: var(--secondary-color);
+    width: 100%;
     color: white;
 }
 .h5 {
