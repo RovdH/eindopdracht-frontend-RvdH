@@ -93,12 +93,20 @@
     border-color: var(--primary-color);
 }
 
+.home__form_result, .home__form_loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 0;
+}
+
 .home__latest_recipelist {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 100vw;
     margin-top: 5%;
     padding: 2% 0;
     background-color: var(--primary-light);

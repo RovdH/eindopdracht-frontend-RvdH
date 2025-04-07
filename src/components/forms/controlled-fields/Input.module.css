@@ -7,6 +7,7 @@
     background: #e7e7e7;
     outline: none;
     transition: outline 0.3s ease;
+    text-indent: 25px;
 }
 
 .input_field:hover,

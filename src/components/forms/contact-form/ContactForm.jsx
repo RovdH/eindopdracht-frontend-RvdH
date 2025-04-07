@@ -3,6 +3,8 @@ import Button from "../../buttons/Button.jsx";
 import Input from "../controlled-fields/Input.jsx";
 import Textarea from "../controlled-fields/Textarea.jsx";
 import styles from "./ContactForm.module.css";
+import {FaEnvelope, FaPhone, FaUser} from "react-icons/fa";
+import {FaMessage} from "react-icons/fa6";
 
 export default function ContactForm() {
     const [formData, setFormData] = useState({
@@ -43,55 +45,55 @@ export default function ContactForm() {
         setLoading(true);
         setMessage("");
 
-        // DEMO PURPOSE om formulier te laten laden. //
+        // DEMO PURPOSE om formulier te laten loaden en werken. //
         setTimeout(() => {
             setLoading(false);
-            setMessage("Form submitted successfully!");
+            setMessage("Demo Form submitted successfully!");
             setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
         }, 2000);
     };
 
     return (
         <form onSubmit={handleSubmit} className={styles.contact__form}>
-            <label>First Name *</label>
-            <fieldset className={styles.contact__form_names}><Input
+            <fieldset className={styles.contact__input_wrapper}><label>First Name *</label><FaUser className={styles.contact__field_icon}/>
+         <Input
                 type="text"
                 name="firstName"
-                placeholder="First Name"
                 value={formData.firstName}
                 onChange={handleChange}
+                className={styles.contact__field_input}
             />
-            {errors.firstName && <p className={styles.contact__form_errorMessage}>{errors.firstName}</p>}
-            <Input
+                {errors.firstName && <p className={styles.contact__form_errorMessage}>{errors.firstName}</p>}</fieldset>
+                <fieldset className={styles.contact__input_wrapper}><label>Last name *</label><FaUser className={styles.contact__field_icon}/><Input
                 type="text"
                 name="lastName"
-                placeholder="Last Name"
                 value={formData.lastName}
                 onChange={handleChange}
+                className={styles.contact__field_input}
             /></fieldset>
-            <label>E-mail *</label><Input
+            <fieldset className={styles.contact__input_wrapper}><label>E-mail *</label><FaEnvelope className={styles.contact__field_icon}/><Input
                 type="email"
                 name="email"
-                placeholder="Email"
                 value={formData.email}
                 onChange={handleChange}
+                className={styles.contact__field_input}
             />
-            {errors.email && <p className={styles.contact__form_errorMessage}>{errors.email}</p>}
-            <label>Phone Number * </label><Input
+            {errors.email && <p className={styles.contact__form_errorMessage}>{errors.email}</p>}</fieldset>
+            <fieldset className={styles.contact__input_wrapper}><label>Phone Number * </label><FaPhone className={styles.contact__field_icon}/><Input
                 type="tel"
                 name="phone"
-                placeholder="Phone Number"
                 value={formData.phone}
                 onChange={handleChange}
+                className={styles.contact__field_input}
             />
-            {errors.phone && <p className={styles.contact__form_errorMessage}>{errors.phone}</p>}
-            <Textarea
+            {errors.phone && <p className={styles.contact__form_errorMessage}>{errors.phone}</p>}</fieldset>
+            <fieldset className={styles.contact__input_wrapper}><label>Message </label><FaMessage className={styles.contact__field_icon}/><Textarea
                 name="message"
-                placeholder="Your Message"
                 value={formData.message}
                 onChange={handleChange}
-            />
-            <Button type="submit"disabled={loading}>
+                className={styles.contact__field_input}
+            /></fieldset>
+            <Button variant="btn_darkgreen" type="submit" disabled={loading}>
                 {loading ? "Submitting..." : "Submit"}
             </Button>
             {message && <p className={styles.contact__form_notify}>{message}</p>}
