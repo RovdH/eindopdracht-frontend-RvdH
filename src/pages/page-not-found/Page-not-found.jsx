@@ -4,7 +4,9 @@ import TitleBar from "../../components/sections/titlebar/TitleBar.jsx";
 
 function PageNotFound() {
     return (
+        <>
         <TitleBar/>
+        </>
     )
 }
 export default PageNotFound

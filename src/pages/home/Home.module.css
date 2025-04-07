@@ -54,6 +54,7 @@
     min-width: 600px;
     z-index: 5;
     background-color: white;
+    margin: 0 20px;
 }
 
 .home__form_title {
@@ -108,8 +109,8 @@
     justify-content: center;
     width: 100vw;
     margin-top: 5%;
-    padding: 2% 0;
+    padding: 2% 20px;
     background-color: var(--primary-light);
+    text-align: center;
 }
-
 
