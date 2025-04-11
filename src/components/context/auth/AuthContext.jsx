@@ -4,11 +4,10 @@ import {jwtDecode} from "jwt-decode";
 import axios from "axios";
 import {isValidToken} from "../../../helpers/isValidToken.js";
 
-export const AuthContext = createContext({});
+export const AuthContext = createContext(null);
 
-function AuthProvider({children}) {
+export function AuthProvider({children}) {
     const [auth, setAuth] = useState({isAuth: false, user: null, status: "pending"});
-    // const [token, setToken] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -39,8 +38,6 @@ function AuthProvider({children}) {
         } catch (error) {
             console.log(error)
         }
-
-
     };
 
     const signout = async () => {
@@ -62,9 +59,7 @@ function AuthProvider({children}) {
 
     return (
         <AuthContext.Provider value={data}>
-            {auth.status === "done" ? {children} : <p>Loading...</p>}
+            {auth.status === "done" ? children : <p>Loading...</p>}
         </AuthContext.Provider>
     );
 }
-
-export default AuthProvider;

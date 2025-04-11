@@ -9,7 +9,7 @@ import {AuthContext} from "../../context/auth/AuthContext.jsx";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const { signout } = useContext(AuthContext);
+    const { isAuth, user, signout } = useContext(AuthContext);
 
     return (
         <section className={styles.nav__menu_wrapper}>
@@ -21,15 +21,33 @@ const Navbar = () => {
                 {renderNavLinks(routes)}
             </ul>
             <ul className={styles.nav__menu_btn}>
-                <li><Button variant="btn_darkgreen" to="/sign-up">Sign Up</Button></li>
-                <li><Button variant="btn_lightgreen" to="/sign-in">Sign In</Button></li>
-            </ul>
-            {menuOpen && (
-                <div className={styles.mobile_menu}>
-                    <ul>
-                        {renderNavLinks(routes)}
+                {!isAuth ? (
+                    <>
                         <li><Button variant="btn_darkgreen" to="/sign-up">Sign Up</Button></li>
                         <li><Button variant="btn_lightgreen" to="/sign-in">Sign In</Button></li>
+                    </>
+                ) : (
+                    <>
+                        <li>👋 Hi {user?.username}</li>
+                        <li><Button variant="btn_lightgray" onClick={signout}>Sign Out</Button></li>
+                    </>
+                )}
+            </ul>
+
+            {menuOpen && (
+                <div className={styles.mobile_menu}>
+                    <ul className={styles.nav__menu_btn}>
+                        {!isAuth ? (
+                            <>
+                                <li><Button variant="btn_darkgreen" to="/sign-up">Sign Up</Button></li>
+                                <li><Button variant="btn_lightgreen" to="/sign-in">Sign In</Button></li>
+                            </>
+                        ) : (
+                            <>
+                                <li>👋 Hi {user?.username}</li>
+                                <li><Button variant="btn_lightgray" onClick={signout}>Sign Out</Button></li>
+                            </>
+                        )}
                     </ul>
                 </div>
             )}
