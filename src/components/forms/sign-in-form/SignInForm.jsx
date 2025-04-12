@@ -4,51 +4,43 @@ import { FaEnvelope, FaLock } from 'react-icons/fa';
 import { AuthContext } from "../../context/auth/AuthContext.jsx";
 import SignInButton from "../../buttons/SigninButton.jsx";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SignInForm = () => {
     const { signin } = useContext(AuthContext);
-    const [email, setEmail] = useState('');
+    const [username , setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        if (name === "email") {
-            setEmail(value);
-        } else if (name === "password") {
-            setPassword(value);
-        }
-    };
 
-    const handleSubmit = async (e) => {
+    const handleSignin = async (e) => {
         e.preventDefault();
-        if (!email || !password) {
-            setErrorMessage('Please enter both email and password.');
+        if (!username) {
+            setErrorMessage('Please enter your username.');
             return;
         }
+
+        if (!password) {
+            setErrorMessage('Please enter your password.');
+            return;
+        }
+
         setIsLoading(true);
         try {
-            const response = await fetch('YOUR_BACKEND_LOGIN_URL', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
-            });
+            const response = await axios.post("https://frontend-educational-backend.herokuapp.com/api/auth/signin", {username, password});
+            if (response.status === 200) {
+                signin(response.data.accessToken);
+                setSuccessMessage("You signed in successfully.");
+                await new Promise(res => setTimeout(res, 2000));
+                navigate("/profile");
 
-            const data = await response.json();
-
-            if (response.ok) {
-                signin(data.token);
-                navigate('/profile');
-            } else {
-                setErrorMessage(data.message || 'Failed to sign in. Please check your credentials.');
             }
-        } catch (err) {
-            console.error("Login error:", err);
-            setErrorMessage('An error occurred while signing in. Try again later.');
+        } catch (error) {
+            console.error("Login error:", error);
+            setErrorMessage('An error occurred while signing in. Try again.');
         } finally {
             setIsLoading(false);
         }
@@ -56,18 +48,18 @@ const SignInForm = () => {
 
     return (
         <section className={styles.signin__wrapper}>
-            <form onSubmit={handleSubmit} className={styles.signin__form}>
+            <form onSubmit={handleSignin} className={styles.signin__form}>
                 <fieldset className={styles.signin__form_fieldset}>
 
-                    <label htmlFor="email" className={styles.signin__label}>E-mail
+                    <label htmlFor="username" className={styles.signin__label}>Username
                         <FaEnvelope className={styles.signin__email_icon} />
                         <input
-                            type="email"
-                            name="email"
-                            placeholder="Enter Email"
-                            value={email}
-                            onChange={handleChange}
+                            type="text"
+                            name="username"
+                            placeholder="Enter Username"
+                            onChange={(e) => setUsername(e.target.value)}
                             className={styles.email_input}
+                            autoComplete="off"
                             required
                         />
                     </label>
@@ -78,15 +70,16 @@ const SignInForm = () => {
                             type="password"
                             name="password"
                             placeholder="Enter Password"
-                            value={password}
-                            onChange={handleChange}
+                            onChange={(e)=>setPassword(e.target.value)}
                             className={styles.password_input}
+                            autoComplete="off"
                             required
                         />
                     </label>
-                    <SignInButton disabled={!email || !password || isLoading} variant={"btn_darkgray"}>
-                        {isLoading ? 'Loading...' : 'Submit'}
+                    <SignInButton disabled={!username || !password || isLoading} variant={"btn_darkgray"}>
+                        {isLoading ? 'Loading...' : 'Submitted'}
                     </SignInButton>
+                    {successMessage && (<p>{successMessage}</p>)}
                 </fieldset>
 
                 {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}

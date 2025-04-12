@@ -1,15 +1,13 @@
 import { useEffect, useRef } from 'react';
 
 export const useAbortController = () => {
-    const abortControllerRef = useRef(null);
+    const abortControllerRef = useRef(new AbortController());
 
     useEffect(() => {
-        abortControllerRef.current = new AbortController();
+        const controller = abortControllerRef.current;
 
         return () => {
-            if (abortControllerRef.current) {
-                abortControllerRef.current.abort();
-            }
+            controller.abort();
         };
     }, []);
 

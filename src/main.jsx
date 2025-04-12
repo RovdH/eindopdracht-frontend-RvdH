@@ -6,11 +6,11 @@ import {AuthProvider} from "./components/context/auth/AuthContext.jsx";
 import {FavoritesProvider} from "./components/context/favorite-recipes/FavContext.jsx";
 
 createRoot(document.getElementById('root')).render(
-    <AuthProvider>
-        <FavoritesProvider>
-            <BrowserRouter>
+    <FavoritesProvider>
+        <BrowserRouter>
+            <AuthProvider>
                 <App/>
-            </BrowserRouter>
-        </FavoritesProvider>
-    </AuthProvider>
+            </AuthProvider>
+        </BrowserRouter>
+    </FavoritesProvider>
 )
