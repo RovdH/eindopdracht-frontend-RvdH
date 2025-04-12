@@ -9,7 +9,7 @@ import {AuthContext} from "../../context/auth/AuthContext.jsx";
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const { isAuth, user, signout } = useContext(AuthContext);
+    const { signout, user } = useContext(AuthContext);
 
     return (
         <section className={styles.nav__menu_wrapper}>
@@ -21,34 +21,35 @@ const Navbar = () => {
                 {renderNavLinks(routes)}
             </ul>
             <ul className={styles.nav__menu_btn}>
-                {!isAuth ? (
+                {!user ? (
                     <>
                         <li><Button variant="btn_darkgreen" to="/sign-up">Sign Up</Button></li>
                         <li><Button variant="btn_lightgreen" to="/sign-in">Sign In</Button></li>
                     </>
                 ) : (
                     <>
-                        <li>👋 Hi {user?.username}</li>
-                        <li><Button variant="btn_lightgray" onClick={signout}>Sign Out</Button></li>
-                    </>
-                )}
+                    <li>Hi 👋 {user.username}<Button variant="btn_lightgreen" onClick={signout}>Sign Out</Button></li>
+                </>
+                    )}
             </ul>
 
             {menuOpen && (
                 <div className={styles.mobile_menu}>
-                    <ul className={styles.nav__menu_btn}>
-                        {!isAuth ? (
-                            <>
-                                <li><Button variant="btn_darkgreen" to="/sign-up">Sign Up</Button></li>
-                                <li><Button variant="btn_lightgreen" to="/sign-in">Sign In</Button></li>
-                            </>
+                    {!user ? (
+                           <div><ul className={styles.mobile__menu_list}>
+                                {renderNavLinks(routes)}
+                                <li className={styles.mobile__li_button}><Button variant="btn_darkgreen" to="/sign-up">Sign Up</Button></li>
+                                <li className={styles.mobile__li_button}><Button variant="btn_lightgreen" to="/sign-in">Sign In</Button></li>
+                           </ul></div>
                         ) : (
-                            <>
-                                <li>👋 Hi {user?.username}</li>
-                                <li><Button variant="btn_lightgray" onClick={signout}>Sign Out</Button></li>
-                            </>
+                            <div><ul className={styles.mobile__menu_list}>
+                                {renderNavLinks(routes)}
+                                <li className={styles.mobile__li_button}>
+                                 Hi 👋 {user.username}
+                                <Button variant="btn_lightgreen" onClick={signout}>Sign Out</Button>
+                            </li>
+                            </ul></div>
                         )}
-                    </ul>
                 </div>
             )}
         </section>

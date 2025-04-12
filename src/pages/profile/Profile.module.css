@@ -1,12 +1,43 @@
-.profile__wrapper
-{
+.profile__wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     padding: 20px;
     width: 100%;
-
+    flex-wrap: wrap;
 }
-.myrecipes__list {
+
+
+.profile__wrapper section {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
     background-color: var(--neutral-light);
+    border-radius: 8px;
+}
+
+.myrecipes__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
+}
+
+.myrecipes__list .recipeCard {
+    flex: 1 1 200px;
+    max-width: 300px;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .profile__wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile__wrapper section {
+        width: 96%;
+        margin: 10px auto;
+    }
 }

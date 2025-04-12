@@ -39,8 +39,6 @@
     filter: brightness(0) invert(1);
 }
 
-
-
 @media screen and (max-width: 768px) {
     .logo {
         width: 200px;
@@ -65,7 +63,7 @@
         align-items: center;
         justify-content: space-between;
         position: relative;
-        z-index: 5;
+        z-index: 9999;
     }
 
     .mobile_menu {
@@ -73,24 +71,19 @@
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: var(--primary-color);
+        background-color: white;
         text-align: center;
         padding: 15px 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         border-bottom: 1px solid var(--secondary-color);
-        z-index: 1;
-    }
-
-    .nav__menu_list.show {
-        display: flex;
     }
 
     .mobile_menu ul {
         list-style: none;
         padding: 0;
-        width: 70%;
+        width: 100%;
     }
 
     .mobile_menu li {
@@ -99,27 +92,24 @@
         position: relative;
         width: 80%;
         margin: 0 auto;
+        color: black;
+        border-bottom: 1px solid var(--secondary-color);
     }
 
-    .mobile_menu li::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 30%;
-        height: 2px;
-        background-color: var(--secondary-color);
-        transition: background-color 0.3s ease;
+    .mobile_menu li:last-child {
+        border-bottom: 0;
     }
 
-    .mobile_menu li:nth-last-child(-n+3)::after {
-        content: none;
+    .mobile__li_button {
+        border-bottom: 0!important;
     }
+
     .mobile_menu li:hover {
         color: var(--highlight-color);
     }
+
     .mobile_list li a.active {
         color: var(--highlight-color);
     }
 }
+

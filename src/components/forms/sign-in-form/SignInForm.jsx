@@ -1,14 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, {useContext, useState} from 'react';
 import styles from './SignInForm.module.css';
-import { FaEnvelope, FaLock } from 'react-icons/fa';
-import { AuthContext } from "../../context/auth/AuthContext.jsx";
+import {FaEnvelope, FaLock} from 'react-icons/fa';
+import {AuthContext} from "../../context/auth/AuthContext.jsx";
 import SignInButton from "../../buttons/SigninButton.jsx";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
 const SignInForm = () => {
-    const { signin } = useContext(AuthContext);
-    const [username , setUsername] = useState('');
+    const {signin} = useContext(AuthContext);
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
@@ -30,7 +30,10 @@ const SignInForm = () => {
 
         setIsLoading(true);
         try {
-            const response = await axios.post("https://frontend-educational-backend.herokuapp.com/api/auth/signin", {username, password});
+            const response = await axios.post("https://frontend-educational-backend.herokuapp.com/api/auth/signin", {
+                username,
+                password
+            });
             if (response.status === 200) {
                 signin(response.data.accessToken);
                 setSuccessMessage("You signed in successfully.");
@@ -40,7 +43,7 @@ const SignInForm = () => {
             }
         } catch (error) {
             console.error("Login error:", error);
-            setErrorMessage('An error occurred while signing in. Try again.');
+            setErrorMessage('Invalid credentials.');
         } finally {
             setIsLoading(false);
         }
@@ -52,7 +55,7 @@ const SignInForm = () => {
                 <fieldset className={styles.signin__form_fieldset}>
 
                     <label htmlFor="username" className={styles.signin__label}>Username
-                        <FaEnvelope className={styles.signin__email_icon} />
+                        <FaEnvelope className={styles.signin__email_icon}/>
                         <input
                             type="text"
                             name="username"
@@ -65,12 +68,12 @@ const SignInForm = () => {
                     </label>
 
                     <label htmlFor="password" className={styles.signin__label}>Password
-                        <FaLock className={styles.signin__password_icon} />
+                        <FaLock className={styles.signin__password_icon}/>
                         <input
                             type="password"
                             name="password"
                             placeholder="Enter Password"
-                            onChange={(e)=>setPassword(e.target.value)}
+                            onChange={(e) => setPassword(e.target.value)}
                             className={styles.password_input}
                             autoComplete="off"
                             required
