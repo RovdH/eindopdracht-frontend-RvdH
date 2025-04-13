@@ -62,4 +62,10 @@ background-color: var(--neutral-light);
     margin-top: 1rem;
 }
 
+@media (max-width: 768px) {
+    .single_recipe__wrapper {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
 

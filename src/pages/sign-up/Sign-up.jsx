@@ -1,4 +1,4 @@
-import styles from '../sign-in/Sign-in.module.css';
+import styles from './Sign-up.module.css';
 import Kipsalade from "../../assets/images/image (2).png";
 import {Link} from "react-router-dom";
 import BordKip from "../../assets/images/image-3-bord-met-kip-kfc-bruddah.png";
