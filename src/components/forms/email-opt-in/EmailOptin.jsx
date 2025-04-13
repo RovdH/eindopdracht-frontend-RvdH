@@ -2,6 +2,7 @@ import styles from './EmailOptin.module.css';
 import React, { useState } from 'react';
 import SubmitButtonSmall from "../../buttons/SubmitButtonSmall.jsx";
 import {FaEnvelope} from "react-icons/fa";
+import {Link} from "react-router-dom";
 
 const EmailOptIn = () => {
     const [emailValue, setEmailValue] = useState('');
@@ -18,7 +19,7 @@ const EmailOptIn = () => {
             setNotificationValue('Please enter a valid email address.');
         } else {
             setIsSuccess(true);
-            setNotificationValue('Yum Yum, You are added to our mailing list.');
+            setNotificationValue('Yum Yum, You are added to our DEMO mailing list.');
         }
     };
 
@@ -48,7 +49,7 @@ const EmailOptIn = () => {
                                 checked={privacyStatementValue}
                                 onChange={() => togglePrivacyStatementValue(!privacyStatementValue)}
                             />
-                            I have read the privacy statement.
+                            I have read the <Link to={"/privacy-statement"} className={styles.privacy_statement__link}>privacy statement</Link>.
                         </label>
                     </div>
                 </fieldset>

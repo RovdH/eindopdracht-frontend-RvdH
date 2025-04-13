@@ -1,9 +1,13 @@
+
+import styles from "./Privacy-statement.module.css";
 import TitleBar from "../../components/sections/titlebar/TitleBar.jsx";
 
 function PrivacyStatement() {
-    return (<>
-     <TitleBar/>
-        <p>Privacy Policy for LazyChef L.T.D.
+    return (
+        <>
+        <TitleBar/>
+        <main className={styles.privacy_statement__wrapper}>
+        <p className={styles.privacy_statement__text}>Privacy Policy for LazyChef L.T.D.
             Effective Date: [Insert Date]
 
             LazyChef L.T.D. ("we," "our," "us") is committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website [your website URL], use our services, or interact with us in other ways.
@@ -65,7 +69,9 @@ function PrivacyStatement() {
             LazyChef L.T.D.
             Email: [Your contact email]
             Address: [Your company address]
-            Phone: [Your company phone number]</p>
+            Phone: [Your company phone number]
+        </p>
+        </main>
         </>
     )
 }

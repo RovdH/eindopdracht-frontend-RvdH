@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import styles from "./RecipePage.module.css";
 import api from "../../../helpers/api.js";
 import {useAbortController} from "../../../helpers/UseAbortController.jsx";
-import RecipeListAll from "../../../components/cards/recipe-list/RecipeListAll.jsx";
 import RecipeCard from "../../../components/cards/RecipeCard.jsx";
 import RecipeComments from "../../../components/forms/recipe-comments-form/RecipeComments.jsx";
 
@@ -75,11 +74,10 @@ function RecipePage() {
                 <section className={styles.single_recipe__prep}>
                     <h2>Preparation</h2>
                     <div
-                        className={styles.instructions}
                         dangerouslySetInnerHTML={{ __html: recipe.instructions }}
                     />
                 </section>
-                <section className={styles.single_recipe__comments}><RecipeComments recipeId={id} /></section>
+                <section><RecipeComments recipeId={id} /></section>
             </main>
             <div className={styles.single_recipe__local_footer}>
                 {similarRecipes.length > 0 && (

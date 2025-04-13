@@ -114,3 +114,15 @@
     text-align: center;
 }
 
+@media only screen and (max-width: 800px) {
+    .home__form_wrapper {
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 15px 0 rgba(123, 180, 139, 0.40);
+        border-radius: 25px;
+        z-index: 5;
+        background-color: white;
+        min-width: 95%;
+        padding: 10px;
+    }
+}

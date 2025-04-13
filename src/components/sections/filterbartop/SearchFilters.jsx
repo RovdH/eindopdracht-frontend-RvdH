@@ -1,23 +1,58 @@
 import { useState } from "react";
 import styles from "./SearchFilters.module.css";
 import Button from "../../buttons/Button.jsx";
-import {FaSearch} from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
+import Select from "react-select";
 
 const SearchFilters = ({ onSearch, onFilterChange, filters }) => {
     const [searchQuery, setSearchQuery] = useState("");
 
-    const handleDropdownChange = (e) => {
-        const { name, value } = e.target;
-        const updatedFilters = { ...filters, [name]: value };
-
+    const handleCustomSelectChange = (name, selectedOption) => {
+        const updatedFilters = {
+            ...filters,
+            [name]: selectedOption ? selectedOption.value : "",
+        };
         onFilterChange(updatedFilters);
     };
+
+    const cuisineOptions = [
+        { value: "", label: "Select Cuisine" },
+        { value: "italian", label: "Italian" },
+        { value: "greek", label: "Greek" },
+        { value: "asian", label: "Asian" },
+        { value: "mexican", label: "Mexican" },
+    ];
+
+    const typeOptions = [
+        { value: "", label: "Select Course Type" },
+        { value: "main course", label: "Main Course" },
+        { value: "breakfast", label: "Breakfast" },
+        { value: "appetizer", label: "Appetizer" },
+        { value: "soup", label: "Soup" },
+        { value: "fingerfood", label: "Fingerfood" },
+        { value: "side dish", label: "Side Dish" },
+        { value: "dessert", label: "Dessert" },
+        { value: "salad", label: "Salad" },
+        { value: "snack", label: "Snack" },
+    ];
+
+    const dietOptions = [
+        { value: "", label: "Select Diet" },
+        { value: "vegetarian", label: "Vegetarian" },
+        { value: "vegan", label: "Vegan" },
+    ];
+
+    const intoleranceOptions = [
+        { value: "", label: "Select Intolerance" },
+        { value: "gluten", label: "Gluten" },
+        { value: "dairy", label: "Dairy" },
+    ];
 
     return (
         <section className={styles.search__wrapper}>
             <h6>What are you eating today?</h6>
             <div className={styles.search__bar}>
-                <FaSearch className={styles.search__bar_icon}/>
+                <FaSearch className={styles.search__bar_icon} />
                 <input
                     type="search"
                     placeholder="Search for recipes..."
@@ -25,42 +60,44 @@ const SearchFilters = ({ onSearch, onFilterChange, filters }) => {
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className={styles.search__bar_find}
                 />
-                <Button onClick={() => onSearch(searchQuery)} variant={"btn_darkgreen"}>Find Now</Button>
+                <Button onClick={() => onSearch(searchQuery)} variant={"btn_darkgreen"}>
+                    Find Now
+                </Button>
             </div>
 
             <div className={styles.search__filters_options}>
-                <select className={styles.search__filters_dropdown} name="cuisine" onChange={handleDropdownChange}>
-                    <option value="">Select Cuisine</option>
-                    <option value="italian">Italian</option>
-                    <option value="greek">Greek</option>
-                    <option value="asian">Asian</option>
-                    <option value="mexican">Mexican</option>
-                </select>
-
-                <select className={styles.search__filters_dropdown} name="type" onChange={handleDropdownChange}>
-                    <option value="">Select course type</option>
-                    <option value="main course">Main Course</option>
-                    <option value="breakfast">Breakfast</option>
-                    <option value="appetizer">Appetizer</option>
-                    <option value="soup">Soup</option>
-                    <option value="fingerfood">Fingerfood</option>
-                    <option value="side dish">Side Dish</option>
-                    <option value="dessert">Dessert</option>
-                    <option value="salad">Salad</option>
-                    <option value="snack">Snack</option>
-                </select>
-
-                <select className={styles.search__filters_dropdown} name="diet" onChange={handleDropdownChange}>
-                    <option value="">Select Diet</option>
-                    <option value="vegetarian">Vegetarian</option>
-                    <option value="vegan">Vegan</option>
-                </select>
-
-                <select className={styles.search__filters_dropdown} name="intolerances" onChange={handleDropdownChange}>
-                    <option value="">Select Intolerance</option>
-                    <option value="gluten">Gluten</option>
-                    <option value="dairy">Dairy</option>
-                </select>
+                <Select
+                    className={styles.search__filters_select}
+                    classNamePrefix="filter"
+                    options={cuisineOptions}
+                    onChange={(selected) => handleCustomSelectChange("cuisine", selected)}
+                    placeholder="Select Cuisine"
+                    isSearchable
+                />
+                <Select
+                    className={styles.search__filters_select}
+                    classNamePrefix="filter"
+                    options={typeOptions}
+                    onChange={(selected) => handleCustomSelectChange("type", selected)}
+                    placeholder="Select Course Type"
+                    isSearchable
+                />
+                <Select
+                    className={styles.search__filters_select}
+                    classNamePrefix="filter"
+                    options={dietOptions}
+                    onChange={(selected) => handleCustomSelectChange("diet", selected)}
+                    placeholder="Select Diet"
+                    isSearchable
+                />
+                <Select
+                    className={styles.search__filters_select}
+                    classNamePrefix="filter"
+                    options={intoleranceOptions}
+                    onChange={(selected) => handleCustomSelectChange("intolerances", selected)}
+                    placeholder="Select Intolerance"
+                    isSearchable
+                />
             </div>
         </section>
     );
