@@ -18,10 +18,22 @@
 
 
 .errorMessage {
+    margin: 10px;
+    text-align: center;
     padding: 10px;
     background-color: var(--highlight-dark);
+    color: black;
+    width: auto;
+    border-radius: 15px;
+}
+.successMessage {
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--primary-color);
     color: white;
     width: auto;
+    border-radius: 15px;
 }
 
 .signin__password_icon, .signin__email_icon {

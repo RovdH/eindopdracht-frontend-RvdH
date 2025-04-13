@@ -29,7 +29,7 @@ export const routes =    [
     { path: '/sign-up', label: 'Sign Up', element: <SignUp/>, inNav: false, title: 'Sign Up', description: 'Join the Yum-side'},
     { path: '/profile', label: 'Profile', element: <ProtectedRoute><Profile /></ProtectedRoute>, inNav: true, title: 'Profile', description: 'Hi, this is check yourself, before your wreck yourself' },
     { path: '*', label: 'PageNotFound', element: <PageNotFound/>, inNav: false, title: '404 Page Not Found', description: 'Hey, you cant park here!'},
-    { path: 'privacy-statement', label: 'Privacy Statement', element: <PrivacyStatement/>, inNav: false, title: 'Privacy Statement', description: 'More information about how we handle your data.' },
+    { path: '/privacy-statement', label: 'Privacy Statement', element: <PrivacyStatement/>, inNav: false, title: 'Privacy Statement', description: 'More information about how we handle your data.' },
     { path: '/recipe/:id/:slug', label: '', element: <RecipePage />, inNav: false, title: '', description: '' }
 
 ];

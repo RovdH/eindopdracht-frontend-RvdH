@@ -62,4 +62,24 @@ background-color: var(--neutral-light);
     margin-top: 1rem;
 }
 
+@media (max-width: 768px) {
+    .single_recipe__wrapper {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .single_recipe__prep, .single_recipe__list {
+        padding: 5%;
+    }
+
+    .single_recipe__grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .single_recipe__similar {
+        width: 100%;
+        background-color: var(--primary-light);
+        padding: 0 20px 0 0;
+    }
+}
 

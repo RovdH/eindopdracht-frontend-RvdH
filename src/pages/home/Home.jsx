@@ -21,8 +21,11 @@ function Home() {
         setCancelRequest(false);
         let query = `&type=${lazy}&minServings=${party}&maxReadyTime=${maxReadyTime}`;
 
+        const minimumLoadingTime = new Promise(resolve => setTimeout(resolve, 2000));
+
         try {
-            const response = await api.get(`/recipes/complexSearch?${query}&number=1`, {signal: abortController.signal});
+            const fetchData = await api.get(`/recipes/complexSearch?${query}&number=1`, {signal: abortController.signal});
+            const [response] = await Promise.all([fetchData, minimumLoadingTime]);
             const data = response.data;
 
             if (data.results && data.results.length > 0) {
@@ -30,18 +33,21 @@ function Home() {
             } else {
                 setRecipe(null);
             }
+            setLoading(false);
         } catch (error) {
             if (error.name === 'AbortError') {
                 console.error("Request canceled");
             } else {
                 console.error("Error fetching recipe:", error);
             }
+            setLoading(false);
         }
     }
         const cancelFetchRecipe = () => {
             setCancelRequest(true);
             abortController.abort();
             setLoading(false);
+            setRecipe(null);
         };
         return (
             <div className={styles.home__wrapper}>
@@ -90,7 +96,7 @@ function Home() {
                             {loading ? (
                                 <div className={styles.home__form_loading}>
                                     <p>Searching for something tasty...</p>
-                                    <img src="public/banana-cheerer.gif" width={150} alt="Dancing Banana"
+                                    <img src="/banana-cheerer.gif" width={150} alt="Dancing Banana"
                                          className={styles.dancingBanana}/>
                                 </div>
                             ) : recipe ? (

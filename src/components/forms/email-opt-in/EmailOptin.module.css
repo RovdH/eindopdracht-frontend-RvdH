@@ -72,3 +72,6 @@
     width: 100%;
     text-indent: 15px;
 }
+.privacy_statement__link {
+    color: var(--primary-color);
+}
