@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 60vh;
+    height: 50vh;
     background-size: cover;
     background-position: center;
 }
@@ -49,6 +49,21 @@
 background-color: var(--neutral-light);
 }
 
+.single_recipe__nutrition {
+    margin-top: 2rem;
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.single_recipe__nutrition ul {
+    list-style: none;
+    padding: 0;
+}
+.single_recipe__nutrition li {
+    margin: 0.5rem 0;
+}
+
 .single_recipe__similar {
     width: 100%;
     background-color: var(--primary-light);
@@ -67,8 +82,9 @@ background-color: var(--neutral-light);
         flex-direction: column;
         justify-content: center;
     }
-    .single_recipe__prep, .single_recipe__list {
+    .single_recipe__prep, .single_recipe__list, .single_recipe__nutrition, .single_recipe__comments {
         padding: 5%;
+        margin-bottom: 10px;
     }
 
     .single_recipe__grid {

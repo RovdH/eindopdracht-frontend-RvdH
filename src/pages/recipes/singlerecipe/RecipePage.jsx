@@ -11,6 +11,7 @@ function RecipePage() {
     const [recipe, setRecipe] = useState(null);
     const [loading, setLoading] = useState(true);
     const [similarRecipes, setSimilarRecipes] = useState([]);
+    const [nutrition, setNutrition] = useState([]);
     const abortController = useAbortController();
 
     useEffect(() => {
@@ -32,6 +33,11 @@ function RecipePage() {
                 }));
 
                 setSimilarRecipes(formatted);
+
+                const nutritionRes = await api.get(`/recipes/${id}/nutritionWidget.json`, {
+                    signal: abortController.signal,
+                });
+                setNutrition(nutritionRes.data);
 
 
             } catch (error) {
@@ -77,7 +83,18 @@ function RecipePage() {
                         dangerouslySetInnerHTML={{ __html: recipe.instructions }}
                     />
                 </section>
-                <section><RecipeComments recipeId={id} /></section>
+               {nutrition && (
+                    <section className={styles.single_recipe__nutrition}>
+                        <h2>Nutrition Facts</h2>
+                        <ul>
+                            <li><strong>Calories:</strong> {nutrition.calories}</li>
+                            <li><strong>Carbs:</strong> {nutrition.carbs}</li>
+                            <li><strong>Fat:</strong> {nutrition.fat}</li>
+                            <li><strong>Protein:</strong> {nutrition.protein}</li>
+                        </ul>
+                    </section>
+                )}
+                <section><RecipeComments className={styles.single_recipe__comments} recipeId={id} /></section>
             </main>
             <div className={styles.single_recipe__local_footer}>
                 {similarRecipes.length > 0 && (
