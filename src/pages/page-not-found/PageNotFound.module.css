@@ -1,0 +1,14 @@
+.page_not_found__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    margin: 30px auto;
+    column-gap: 50px;
+    text-align: center;
+}
+.page_not_found__image {
+    max-width: 400px;
+}

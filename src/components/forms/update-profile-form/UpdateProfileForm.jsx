@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import Button from "../../buttons/Button.jsx";
 import styles from '../sign-in-form/SignInForm.module.css';
 import {FaEnvelope, FaLock} from "react-icons/fa";
 
-const UpdateProfileForm = ({ currentUser, onProfileUpdate }) => {
+const UpdateProfileForm = ({currentUser, onProfileUpdate}) => {
     const [email, setEmail] = useState(currentUser.email || '');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');

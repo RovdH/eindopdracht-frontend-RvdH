@@ -25,9 +25,9 @@ const FilterSidebar = ({ onUpdateIngredients }) => {
     };
 
     return (
-        <section className={styles.sidebar__wrapper}>
+        <aside className={styles.sidebar__wrapper}>
             <h3 className={styles.sidebar__title}>What items do you have in home?</h3>
-            <div className={styles.sidebar__input}>
+            <section className={styles.sidebar__input}>
                 <input className={styles.sidebar__input_field}
                     type="text"
                     value={ingredient}
@@ -37,7 +37,7 @@ const FilterSidebar = ({ onUpdateIngredients }) => {
                 <Button variant={"btn_darkgreen"} onClick={addIngredient}>
                     Add...
                 </Button>
-            </div>
+            </section>
             <h6>My Added Items</h6>
             <ul className={styles.sidebar__list}>
                 {ingredients.map((item) => (
@@ -54,7 +54,7 @@ const FilterSidebar = ({ onUpdateIngredients }) => {
                     </li>
                 ))}
             </ul>
-        </section>
+        </aside>
     );
 };
 

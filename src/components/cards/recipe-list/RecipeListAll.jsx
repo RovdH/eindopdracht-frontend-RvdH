@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import api from "../../../helpers/api.js";
 import RecipeCard from "../RecipeCard.jsx";
 import styles from "./RecipeListAll.module.css"
@@ -28,7 +28,7 @@ const RecipeListAll = ({searchQuery, filters, number = 9, setNumber}) => {
             console.log("API Request Params:", params);
 
             try {
-                const response = await api.get('/recipes/complexSearch', { params });
+                const response = await api.get('/recipes/complexSearch', {params});
                 console.log("API Response:", response.data);
                 setRecipes(response.data.results);
             } catch (error) {
@@ -43,25 +43,25 @@ const RecipeListAll = ({searchQuery, filters, number = 9, setNumber}) => {
     }, [searchQuery, filters, number]);
 
     return (
-        <div className={styles.recipe__wrapper}>
-            <section className={styles.recipe_list}>
-            {loading ? <p>Loading recipes...</p> : (
-                recipes.length > 0 ? (
-                    recipes.map((recipe) => (
-                        <RecipeCard key={recipe.id} recipe={recipe}/>
-                    ))
-                ) : (
-                    <p className={styles.recipe__list_notfound}>No recipes found.</p>
-                )
-            )}
-            </section>
-    <section className={styles.recipe__list_more}>
-        {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
-        {!loading && recipes.length > 0 && (
-            <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 6)}>Load More</Button>
-        )}
-    </section>
-        </div>
+        <main className={styles.recipe__wrapper}>
+            <article className={styles.recipe_list}>
+                {loading ? <p>Loading recipes...</p> : (
+                    recipes.length > 0 ? (
+                        recipes.map((recipe) => (
+                            <RecipeCard key={recipe.id} recipe={recipe}/>
+                        ))
+                    ) : (
+                        <p className={styles.recipe__list_notfound}>No recipes found.</p>
+                    )
+                )}
+            </article>
+            <article className={styles.recipe__list_more}>
+                {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
+                {!loading && recipes.length > 0 && (
+                    <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 6)}>Load More</Button>
+                )}
+            </article>
+        </main>
     );
 };
 

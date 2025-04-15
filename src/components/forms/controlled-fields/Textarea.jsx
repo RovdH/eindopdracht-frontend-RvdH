@@ -1,6 +1,6 @@
 import styles from "./Textarea.module.css";
 
-export default function Textarea({ name, placeholder, value, onChange }) {
+export default function Textarea({name, placeholder, value, onChange}) {
     return (
         <textarea
             name={name}

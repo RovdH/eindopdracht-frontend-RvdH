@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
-const EmailField = ({ successMessage, errorMessage, onChange, onValidationChange, ...props }) => {
+const EmailField = ({successMessage, errorMessage, onChange, onValidationChange, ...props}) => {
     const [emailValue, setEmailValue] = useState('');
     const [notificationValue, setNotificationValue] = useState('');
     const [isSuccess, setIsSuccess] = useState(false);
@@ -28,7 +28,7 @@ const EmailField = ({ successMessage, errorMessage, onChange, onValidationChange
     };
 
     return (
-        <div>
+        <form>
             <label>
                 <input
                     name="name"
@@ -40,11 +40,11 @@ const EmailField = ({ successMessage, errorMessage, onChange, onValidationChange
                 />
             </label>
             {notificationValue && (
-                <div style={{ color: isSuccess ? 'green' : 'red' }}>
+                <div style={{color: isSuccess ? 'green' : 'red'}}>
                     {notificationValue}
                 </div>
             )}
-        </div>
+        </form>
     );
 };
 

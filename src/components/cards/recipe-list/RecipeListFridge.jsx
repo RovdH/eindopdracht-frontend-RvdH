@@ -37,7 +37,7 @@ const RecipeListFridge = ({ingredients = [], number = 8, setNumber}) => {
     }, [ingredients, number]);
 
     return (
-        <div className={styles.recipe__wrapper}>
+        <main className={styles.recipe__wrapper}>
             <section className={styles.recipe_list}>
                 {loading ? <p>Loading...</p> : (
                     recipes.length > 0 ? (
@@ -52,14 +52,14 @@ const RecipeListFridge = ({ingredients = [], number = 8, setNumber}) => {
             </section>
 
 
-                <section className={styles.recipe__list_more}>
-                    {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
-                    {!loading && recipes.length > 0 && (
+            <section className={styles.recipe__list_more}>
+                {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
+                {!loading && recipes.length > 0 && (
                     <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 6)}>Load More</Button>
-                    )}
-                </section>
+                )}
+            </section>
 
-        </div>
+        </main>
     );
 };
 

@@ -4,11 +4,11 @@ import {usePageTitle} from "../../../helpers/UsePageTitle.jsx";
 
 
 const TitleBar = () => {
-  const pageTitle = usePageTitle();
+    const pageTitle = usePageTitle();
 
     return (
-        <div className={styles.titlebar__wrapper}><h1 className={styles.titlebar__title}> {pageTitle} </h1>
-        </div>
+        <section className={styles.titlebar__wrapper}><h1 className={styles.titlebar__title}> {pageTitle} </h1>
+        </section>
     )
 }
 export default TitleBar

@@ -1,6 +1,6 @@
 import styles from "./Input.module.css";
 
-export default function Input({ type = "text", name, placeholder, value, onChange }) {
+export default function Input({type = "text", name, placeholder, value, onChange}) {
     return (
         <input
             type={type}

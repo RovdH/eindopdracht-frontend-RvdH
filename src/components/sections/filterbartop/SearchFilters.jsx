@@ -1,10 +1,10 @@
-import { useState } from "react";
+import {useState} from "react";
 import styles from "./SearchFilters.module.css";
 import Button from "../../buttons/Button.jsx";
-import { FaSearch } from "react-icons/fa";
+import {FaSearch} from "react-icons/fa";
 import Select from "react-select";
 
-const SearchFilters = ({ onSearch, onFilterChange, filters }) => {
+const SearchFilters = ({onSearch, onFilterChange, filters}) => {
     const [searchQuery, setSearchQuery] = useState("");
 
     const handleCustomSelectChange = (name, selectedOption) => {
@@ -16,43 +16,43 @@ const SearchFilters = ({ onSearch, onFilterChange, filters }) => {
     };
 
     const cuisineOptions = [
-        { value: "", label: "Select Cuisine" },
-        { value: "italian", label: "Italian" },
-        { value: "greek", label: "Greek" },
-        { value: "asian", label: "Asian" },
-        { value: "mexican", label: "Mexican" },
+        {value: "", label: "Select Cuisine"},
+        {value: "italian", label: "Italian"},
+        {value: "greek", label: "Greek"},
+        {value: "asian", label: "Asian"},
+        {value: "mexican", label: "Mexican"},
     ];
 
     const typeOptions = [
-        { value: "", label: "Select Course Type" },
-        { value: "main course", label: "Main Course" },
-        { value: "breakfast", label: "Breakfast" },
-        { value: "appetizer", label: "Appetizer" },
-        { value: "soup", label: "Soup" },
-        { value: "fingerfood", label: "Fingerfood" },
-        { value: "side dish", label: "Side Dish" },
-        { value: "dessert", label: "Dessert" },
-        { value: "salad", label: "Salad" },
-        { value: "snack", label: "Snack" },
+        {value: "", label: "Select Course Type"},
+        {value: "main course", label: "Main Course"},
+        {value: "breakfast", label: "Breakfast"},
+        {value: "appetizer", label: "Appetizer"},
+        {value: "soup", label: "Soup"},
+        {value: "fingerfood", label: "Fingerfood"},
+        {value: "side dish", label: "Side Dish"},
+        {value: "dessert", label: "Dessert"},
+        {value: "salad", label: "Salad"},
+        {value: "snack", label: "Snack"},
     ];
 
     const dietOptions = [
-        { value: "", label: "Select Diet" },
-        { value: "vegetarian", label: "Vegetarian" },
-        { value: "vegan", label: "Vegan" },
+        {value: "", label: "Select Diet"},
+        {value: "vegetarian", label: "Vegetarian"},
+        {value: "vegan", label: "Vegan"},
     ];
 
     const intoleranceOptions = [
-        { value: "", label: "Select Intolerance" },
-        { value: "gluten", label: "Gluten" },
-        { value: "dairy", label: "Dairy" },
+        {value: "", label: "Select Intolerance"},
+        {value: "gluten", label: "Gluten"},
+        {value: "dairy", label: "Dairy"},
     ];
 
     return (
         <section className={styles.search__wrapper}>
             <h6>What are you eating today?</h6>
-            <div className={styles.search__bar}>
-                <FaSearch className={styles.search__bar_icon} />
+            <article className={styles.search__bar}>
+                <FaSearch className={styles.search__bar_icon}/>
                 <input
                     type="search"
                     placeholder="Search for recipes..."
@@ -63,9 +63,9 @@ const SearchFilters = ({ onSearch, onFilterChange, filters }) => {
                 <Button onClick={() => onSearch(searchQuery)} variant={"btn_darkgreen"}>
                     Find Now
                 </Button>
-            </div>
+            </article>
 
-            <div className={styles.search__filters_options}>
+            <article className={styles.search__filters_options}>
                 <Select
                     className={styles.search__filters_select}
                     classNamePrefix="filter"
@@ -98,7 +98,7 @@ const SearchFilters = ({ onSearch, onFilterChange, filters }) => {
                     placeholder="Select Intolerance"
                     isSearchable
                 />
-            </div>
+            </article>
         </section>
     );
 };

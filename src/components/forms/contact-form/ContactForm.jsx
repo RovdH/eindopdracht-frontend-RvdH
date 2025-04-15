@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 import Button from "../../buttons/Button.jsx";
 import Input from "../controlled-fields/Input.jsx";
 import Textarea from "../controlled-fields/Textarea.jsx";
@@ -22,7 +22,7 @@ export default function ContactForm() {
     const validatePhone = (phone) => /^\+?[0-9]{7,15}$/.test(phone);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
         setFormData((prev) => ({
             ...prev,
             [name]: value
@@ -49,45 +49,50 @@ export default function ContactForm() {
         setTimeout(() => {
             setLoading(false);
             setMessage("Demo Form submitted successfully!");
-            setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
+            setFormData({firstName: "", lastName: "", email: "", phone: "", message: ""});
         }, 2000);
     };
 
     return (
         <form onSubmit={handleSubmit} className={styles.contact__form}>
-            <fieldset className={styles.contact__input_wrapper}><label>First Name *</label><FaUser className={styles.contact__field_icon}/>
-         <Input
-                type="text"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
-                className={styles.contact__field_input}
-            />
+            <fieldset className={styles.contact__input_wrapper}><label>First Name *</label><FaUser
+                className={styles.contact__field_icon}/>
+                <Input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    className={styles.contact__field_input}
+                />
                 {errors.firstName && <p className={styles.contact__form_errorMessage}>{errors.firstName}</p>}</fieldset>
-                <fieldset className={styles.contact__input_wrapper}><label>Last name *</label><FaUser className={styles.contact__field_icon}/><Input
+            <fieldset className={styles.contact__input_wrapper}><label>Last name *</label><FaUser
+                className={styles.contact__field_icon}/><Input
                 type="text"
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
                 className={styles.contact__field_input}
             /></fieldset>
-            <fieldset className={styles.contact__input_wrapper}><label>E-mail *</label><FaEnvelope className={styles.contact__field_icon}/><Input
+            <fieldset className={styles.contact__input_wrapper}><label>E-mail *</label><FaEnvelope
+                className={styles.contact__field_icon}/><Input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 className={styles.contact__field_input}
             />
-            {errors.email && <p className={styles.contact__form_errorMessage}>{errors.email}</p>}</fieldset>
-            <fieldset className={styles.contact__input_wrapper}><label>Phone Number * </label><FaPhone className={styles.contact__field_icon}/><Input
+                {errors.email && <p className={styles.contact__form_errorMessage}>{errors.email}</p>}</fieldset>
+            <fieldset className={styles.contact__input_wrapper}><label>Phone Number * </label><FaPhone
+                className={styles.contact__field_icon}/><Input
                 type="tel"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
                 className={styles.contact__field_input}
             />
-            {errors.phone && <p className={styles.contact__form_errorMessage}>{errors.phone}</p>}</fieldset>
-            <fieldset className={styles.contact__input_wrapper}><label>Message </label><FaMessage className={styles.contact__field_icon}/><Textarea
+                {errors.phone && <p className={styles.contact__form_errorMessage}>{errors.phone}</p>}</fieldset>
+            <fieldset className={styles.contact__input_wrapper}><label>Message </label><FaMessage
+                className={styles.contact__field_icon}/><Textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}

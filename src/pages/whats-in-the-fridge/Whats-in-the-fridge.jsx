@@ -14,12 +14,12 @@ function WhatsInTheFridge() {
 
     return (
         <>
-            <TitleBar />
-                <section className={styles.witf__wrapper}>
-                    <FilterSidebar onUpdateIngredients={updateIngredients} />
-                    <RecipeListFridge ingredients={ingredients} number={number} setNumber={setNumber} />
-                </section>
-            </>
+            <header><TitleBar/></header>
+            <main className={styles.witf__wrapper}>
+                <FilterSidebar onUpdateIngredients={updateIngredients}/>
+                <RecipeListFridge ingredients={ingredients} number={number} setNumber={setNumber}/>
+            </main>
+        </>
     )
 }
 
