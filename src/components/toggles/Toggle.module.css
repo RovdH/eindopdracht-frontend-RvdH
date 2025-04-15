@@ -1,0 +1,50 @@
+.toggle__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.toggle__label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+}
+
+.toggle__slider {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: #ccc;
+    transition: background-color 0.3s ease;
+}
+
+.toggle__circle {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+    transition: left 0.3s ease;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.on {
+    background-color: #4caf50;
+}
+
+.on .circle {
+    left: 33px;
+}
+
+.off {
+    background-color: #ccc;
+}
+
+.off .toggle__circle {
+    left: 3px;
+}
