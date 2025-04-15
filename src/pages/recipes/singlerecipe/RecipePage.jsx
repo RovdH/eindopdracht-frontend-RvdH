@@ -146,7 +146,6 @@ function RecipePage() {
                         dangerouslySetInnerHTML={{ __html: recipe.instructions }}
                     />
                 </section>
-
                 <section><RecipeComments className={styles.single_recipe__comments} recipeId={id} /><ShareBox/></section>
             </main>
             <div className={styles.single_recipe__local_footer}>
