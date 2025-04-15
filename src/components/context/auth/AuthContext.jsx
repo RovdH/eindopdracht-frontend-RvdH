@@ -42,7 +42,7 @@ export function AuthProvider({children}) {
                 status: "done",
             });
         } catch (error) {
-            console.log(error)
+            console.error(error)
         }
     };
 

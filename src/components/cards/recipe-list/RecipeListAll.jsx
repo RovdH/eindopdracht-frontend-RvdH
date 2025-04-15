@@ -3,12 +3,14 @@ import api from "../../../helpers/api.js";
 import RecipeCard from "../RecipeCard.jsx";
 import styles from "./RecipeListAll.module.css"
 import Button from "../../buttons/Button.jsx";
+import {useAbortController} from "../../../helpers/UseAbortController.jsx";
 
 const RecipeListAll = ({searchQuery, filters, number = 9, setNumber}) => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 
+    const abortController = useAbortController();
 
     useEffect(() => {
     }, [filters]);
@@ -25,17 +27,19 @@ const RecipeListAll = ({searchQuery, filters, number = 9, setNumber}) => {
             };
 
             try {
-                const response = await api.get('/recipes/complexSearch', {params});
+                const response = await api.get('/recipes/complexSearch', {params, signal: abortController.signal});
                 setRecipes(response.data.results);
             } catch (error) {
-                setErrorMessage(error.message);
+                if (error.name !== 'AbortError') {
+                    setErrorMessage(error.message);
+                }
             } finally {
                 setLoading(false);
             }
         };
 
         fetchRecipes();
-    }, [searchQuery, filters, number]);
+    }, [searchQuery, filters, number, abortController]);
 
     return (
         <main className={styles.recipe__wrapper}>
