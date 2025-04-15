@@ -6,8 +6,7 @@ import {useAbortController} from "../../../helpers/UseAbortController.jsx";
 import RecipeCard from "../../../components/cards/RecipeCard.jsx";
 import RecipeComments from "../../../components/forms/recipe-comments-form/RecipeComments.jsx";
 import Toggle from "../../../components/toggles/Toggle.jsx";
-
-
+import ShareBox from "../../../components/sections/sharebox/ShareBox.jsx";
 
 function RecipePage() {
     const { id } = useParams();
@@ -148,7 +147,7 @@ function RecipePage() {
                     />
                 </section>
 
-                <section><RecipeComments className={styles.single_recipe__comments} recipeId={id} /></section>
+                <section><RecipeComments className={styles.single_recipe__comments} recipeId={id} /><ShareBox/></section>
             </main>
             <div className={styles.single_recipe__local_footer}>
                 {similarRecipes.length > 0 && (

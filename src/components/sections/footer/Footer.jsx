@@ -2,6 +2,7 @@ import styles from './Footer.module.css';
 import {routes} from "../../../routes/routes.jsx";
 import {renderNavLinks} from "../../../helpers/RenderNavLinks.jsx";
 import EmailOptin from "../../forms/email-opt-in/EmailOptin.jsx";
+import ShareBox from "../sharebox/ShareBox.jsx";
 
 const Footer = () => {
     return (
@@ -20,6 +21,7 @@ const Footer = () => {
                             <span>Newtonlaan 247, 3584BH Utrecht</span>
                             <span>030-3073200 - <a href="mailto:contact@novi.nl>contact@novi.nl">Contact@novi.nl</a></span>
                         </p>
+                            <ShareBox />
                     </address>
                 <div className={styles.footer__email_optin}><EmailOptin/></div>
             </section>
