@@ -5,6 +5,7 @@ import api from "../../../helpers/api.js";
 import {useAbortController} from "../../../helpers/UseAbortController.jsx";
 import RecipeCard from "../../../components/cards/RecipeCard.jsx";
 import RecipeComments from "../../../components/forms/recipe-comments-form/RecipeComments.jsx";
+import Button from "../../../components/buttons/Button.jsx";
 
 function RecipePage() {
     const { id } = useParams();
@@ -12,6 +13,12 @@ function RecipePage() {
     const [loading, setLoading] = useState(true);
     const [similarRecipes, setSimilarRecipes] = useState([]);
     const [nutrition, setNutrition] = useState([]);
+    const [unitSystem, setUnitSystem] = useState("metric");
+    const[convertedIngredients, setConvertedIngredients] = useState([]);
+
+    const toggleUnits = () =>
+        setUnitSystem((prev) => (prev === "metric" ? "imperial" : "metric"));
+
     const abortController = useAbortController();
 
     useEffect(() => {
@@ -52,6 +59,45 @@ function RecipePage() {
         fetchRecipe();
     }, [id, abortController]);
 
+       useEffect(() => {
+        const convertIngredients = async () => {
+            if (!recipe?.extendedIngredients) return;
+
+            try {
+                const conversions = await Promise.all(
+                    recipe.extendedIngredients.map(async (ingredient) => {
+                        try {
+                            const res = await api.get(`/recipes/convert`, {
+                                params: {
+                                    ingredientName: ingredient.name,
+                                    sourceAmount: ingredient.amount,
+                                    sourceUnit: ingredient.unit,
+                                    targetUnit: unitSystem === "metric" ? "grams" : "ounces", // or "ml" for liquids
+                                },
+                                signal: abortController.signal,
+                            });
+
+                            return {
+                                ...ingredient,
+                                amount: res.data.targetAmount,
+                                unit: res.data.targetUnit,
+                            };
+                        } catch (err) {
+                            console.warn(`Conversion failed for ${ingredient.name}`, err);
+                            return ingredient;
+                        }
+                    })
+                );
+
+                setConvertedIngredients(conversions);
+            } catch (err) {
+                console.error("Error converting ingredients:", err);
+            }
+        };
+
+        convertIngredients();
+    }, [recipe, unitSystem, abortController]);
+
     if (loading) return <p>Loading...</p>;
     if (!recipe) return <p>Recipe not found.</p>;
 
@@ -68,22 +114,21 @@ function RecipePage() {
             </header>
             <main className={styles.single_recipe__wrapper}>
                 <section className={styles.single_recipe__list}>
+                    <Button variant={"btn_darkgreen"} onClick={toggleUnits} className={styles.unitToggle}>
+                        Units: {unitSystem === "metric" ? "European (g/ml)" : "Freedom (oz/cups)"}
+                    </Button>
+
                     <h2>Ingredients</h2>
                     <ul>
-                        {recipe.extendedIngredients.map((ingredient) => (
+                        {(convertedIngredients.length > 0 ? convertedIngredients : recipe.extendedIngredients).map((ingredient) => (
                             <li key={ingredient.id}>
-                                {ingredient.amount} {ingredient.unit} {ingredient.name}
+                                {ingredient.amount.toFixed(1)} {ingredient.unit} {ingredient.name}
                             </li>
                         ))}
                     </ul>
+
                 </section>
-                <section className={styles.single_recipe__prep}>
-                    <h2>Preparation</h2>
-                    <div
-                        dangerouslySetInnerHTML={{ __html: recipe.instructions }}
-                    />
-                </section>
-               {nutrition && (
+                {nutrition && (
                     <section className={styles.single_recipe__nutrition}>
                         <h2>Nutrition Facts</h2>
                         <ul>
@@ -94,6 +139,13 @@ function RecipePage() {
                         </ul>
                     </section>
                 )}
+                <section className={styles.single_recipe__prep}>
+                    <h2>Preparation</h2>
+                    <div
+                        dangerouslySetInnerHTML={{ __html: recipe.instructions }}
+                    />
+                </section>
+
                 <section><RecipeComments className={styles.single_recipe__comments} recipeId={id} /></section>
             </main>
             <div className={styles.single_recipe__local_footer}>

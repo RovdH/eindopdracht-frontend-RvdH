@@ -28,8 +28,15 @@
 
 .single_recipe__wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+    padding: 0 2rem;
+    min-width: 1200px;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 25px;
 }
 
 .single_recipe__prep {
@@ -40,22 +47,19 @@
     margin: 2%;
 }
 
-.single_recipe__list {
+.single_recipe__list, .single_recipe__nutrition, .single_recipe__comments {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     padding: 2%;
-background-color: var(--neutral-light);
+    width: 100%;
+    background-color: var(--neutral-light);
+
+    border-radius: 25px;
+    margin-bottom: 1%;
 }
 
-.single_recipe__nutrition {
-    margin-top: 2rem;
-    background: #f9f9f9;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
 .single_recipe__nutrition ul {
     list-style: none;
     padding: 0;
