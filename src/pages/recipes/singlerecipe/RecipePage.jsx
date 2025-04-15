@@ -5,7 +5,9 @@ import api from "../../../helpers/api.js";
 import {useAbortController} from "../../../helpers/UseAbortController.jsx";
 import RecipeCard from "../../../components/cards/RecipeCard.jsx";
 import RecipeComments from "../../../components/forms/recipe-comments-form/RecipeComments.jsx";
-import Button from "../../../components/buttons/Button.jsx";
+import Toggle from "../../../components/toggles/Toggle.jsx";
+
+
 
 function RecipePage() {
     const { id } = useParams();
@@ -114,9 +116,9 @@ function RecipePage() {
             </header>
             <main className={styles.single_recipe__wrapper}>
                 <section className={styles.single_recipe__list}>
-                    <Button variant={"btn_darkgreen"} onClick={toggleUnits} className={styles.unitToggle}>
-                        Units: {unitSystem === "metric" ? "European (g/ml)" : "Freedom (oz/cups)"}
-                    </Button>
+                    <div className={styles.unit_toggle}>
+                        <Toggle isOn={unitSystem === "imperial"} onToggle={toggleUnits} />
+                    </div>
 
                     <h2>Ingredients</h2>
                     <ul>
