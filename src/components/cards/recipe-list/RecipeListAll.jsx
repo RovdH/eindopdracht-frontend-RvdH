@@ -11,7 +11,6 @@ const RecipeListAll = ({searchQuery, filters, number = 9, setNumber}) => {
 
 
     useEffect(() => {
-        console.log("Filters being used in API call:", filters);
     }, [filters]);
 
     useEffect(() => {
@@ -25,14 +24,10 @@ const RecipeListAll = ({searchQuery, filters, number = 9, setNumber}) => {
                 fillIngredients: false,
             };
 
-            console.log("API Request Params:", params);
-
             try {
                 const response = await api.get('/recipes/complexSearch', {params});
-                console.log("API Response:", response.data);
                 setRecipes(response.data.results);
             } catch (error) {
-                console.error('Error fetching recipes:', error);
                 setErrorMessage(error.message);
             } finally {
                 setLoading(false);
