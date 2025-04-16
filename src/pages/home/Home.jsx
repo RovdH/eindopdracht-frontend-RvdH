@@ -94,11 +94,11 @@ function Home() {
                         <Button variant={"btn_darkgray"} onClick={fetchRecipe}>Let's Cook...maybe</Button>
                         <section className={styles.home__form_result}>
                             {loading ? (
-                                <div className={styles.home__form_loading}>
+                                <article className={styles.home__form_loading}>
                                     <p>Searching for something tasty...</p>
-                                    <img src="/banana-cheerer.gif" width={150} alt="Dancing Banana"
+                                    <img src="/banana-cheerer.gif" alt="Dancing Banana"
                                          className={styles.dancingBanana}/>
-                                </div>
+                                </article>
                             ) : recipe ? (
                                 <RecipeCard recipe={recipe}/>
                             ) : (

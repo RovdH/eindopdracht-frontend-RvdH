@@ -7,7 +7,8 @@ const TitleBar = () => {
     const pageTitle = usePageTitle();
 
     return (
-        <section className={styles.titlebar__wrapper}><h1 className={styles.titlebar__title}> {pageTitle} </h1>
+        <section className={styles.titlebar__wrapper}>
+            <h1 className={styles.titlebar__title}> {pageTitle} </h1>
         </section>
     )
 }

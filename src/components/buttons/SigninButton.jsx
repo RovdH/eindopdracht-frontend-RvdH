@@ -6,7 +6,7 @@ const SignInButton = ({ isLoading, disabled, isAuth, handleAuth, variant = 'btn_
         <button type="submit"
                 disabled={disabled}
                 onClick={handleAuth}
-                className={`${styles.button} ${styles[variant]}`} // Apply styles dynamically
+                className={`${styles.button} ${styles[variant]}`}
         >
             {isLoading ? 'Loading...' : isAuth ? 'Sign Out' : 'Sign In'}
         </button>

@@ -54,10 +54,10 @@ const RecipeListAll = ({searchQuery, filters, number = 9, setNumber}) => {
                     )
                 )}
             </article>
-            <article className={styles.recipe__list_more}>
+            <article>
                 {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
                 {!loading && recipes.length > 0 && (
-                    <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 6)}>Load More</Button>
+                    <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 3)}>Load More</Button>
                 )}
             </article>
         </main>

@@ -31,7 +31,7 @@ function RecipePage() {
                 setRecipe(response.data);
 
                 const similarRes = await api.get(`/recipes/${id}/similar`, {
-                    params: {number: 6},
+                    params: {number: 3},
                     signal: abortController.signal,
                 });
 
@@ -73,7 +73,7 @@ function RecipePage() {
                                     ingredientName: ingredient.name,
                                     sourceAmount: ingredient.amount,
                                     sourceUnit: ingredient.unit,
-                                    targetUnit: unitSystem === "metric" ? "grams" : "ounces", // or "ml" for liquids
+                                    targetUnit: unitSystem === "metric" ? "grams" : "ounces",
                                 },
                                 signal: abortController.signal,
                             });
@@ -115,38 +115,41 @@ function RecipePage() {
             </header>
             <main className={styles.single_recipe__wrapper}>
                 <section className={styles.single_recipe__list}>
-                    <div className={styles.unit_toggle}>
-                        <Toggle isOn={unitSystem === "imperial"} onToggle={toggleUnits}/>
-                    </div>
-
-                    <h2>Ingredients</h2>
-                    <ul>
-                        {(convertedIngredients.length > 0 ? convertedIngredients : recipe.extendedIngredients).map((ingredient) => (
-                            <li key={ingredient.id}>
-                                {ingredient.amount.toFixed(1)} {ingredient.unit} {ingredient.name}
-                            </li>
-                        ))}
-                    </ul>
-
-                </section>
-                {nutrition && (
-                    <section className={styles.single_recipe__nutrition}>
-                        <h2>Nutrition Facts</h2>
+                    <article>
+                        <h2>Ingredients</h2>
+                        <Toggle isOn={unitSystem === "imperial"} onToggle={toggleUnits} labelLeft={"Standard Units 🌍"}
+                                labelRight={"Freedom Units 🇺🇸"}/>
                         <ul>
-                            <li><strong>Calories:</strong> {nutrition.calories}</li>
-                            <li><strong>Carbs:</strong> {nutrition.carbs}</li>
-                            <li><strong>Fat:</strong> {nutrition.fat}</li>
-                            <li><strong>Protein:</strong> {nutrition.protein}</li>
+                            {(convertedIngredients.length > 0 ? convertedIngredients : recipe.extendedIngredients).map((ingredient) => (
+                                <li key={ingredient.id}>
+                                    {ingredient.amount.toFixed(1)} {ingredient.unit} {ingredient.name}
+                                </li>
+                            ))}
                         </ul>
-                    </section>
-                )}
+                    </article>
+                    {nutrition && (
+                        <article>
+                            <h2>Nutrition Facts</h2>
+                            <ul>
+                                <li><strong>Calories:</strong> {nutrition.calories}</li>
+                                <li><strong>Carbs:</strong> {nutrition.carbs}</li>
+                                <li><strong>Fat:</strong> {nutrition.fat}</li>
+                                <li><strong>Protein:</strong> {nutrition.protein}</li>
+                            </ul>
+                        </article>
+                    )}
+                </section>
+
                 <section className={styles.single_recipe__prep}>
                     <h2>Preparation</h2>
                     <div
                         dangerouslySetInnerHTML={{__html: recipe.instructions}}
                     />
                 </section>
-                <section><RecipeComments className={styles.single_recipe__comments} recipeId={id}/><ShareBox/></section>
+                <section>
+                    <RecipeComments className={styles.single_recipe__comments} recipeId={id}/>
+                    <ShareBox className={styles.single_recipe__sharebox}/>
+                </section>
             </main>
             <div className={styles.single_recipe__local_footer}>
                 {similarRecipes.length > 0 && (

@@ -1,0 +1,59 @@
+.signup__wrapper {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.signup__wrapper label {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+.loader {
+    background-color: var(--primary-color);
+}
+
+
+.errorMessage {
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--highlight-dark);
+    color: black;
+    width: auto;
+    border-radius: 15px;
+}
+.successMessage {
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    width: auto;
+    border-radius: 15px;
+}
+
+.signup__password_icon, .signup__email_icon {
+    position: absolute;
+    left: 15px;
+    top: 65%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    font-size: 18px;
+    z-index: 0;
+}
+
+.email_input,
+.password_input {
+    background-color: #f3f3f3;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 30px;
+    padding: 15px 15px 15px 40px;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+}

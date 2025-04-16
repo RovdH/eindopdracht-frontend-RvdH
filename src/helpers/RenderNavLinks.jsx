@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 
-export const renderNavLinks = (routes) => {
+export const RenderNavLinks = (routes) => {
     return routes
         .filter((route) => route.inNav)
         .map((route, index) => (

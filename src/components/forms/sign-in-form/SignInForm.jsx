@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import styles from './SignInForm.module.css';
-import {FaEnvelope, FaLock} from 'react-icons/fa';
+import {FaEnvelope, FaLock, FaUser} from 'react-icons/fa';
 import {AuthContext} from "../../context/auth/AuthContext.jsx";
 import SignInButton from "../../buttons/SigninButton.jsx";
 import {useNavigate} from "react-router-dom";
@@ -51,11 +51,11 @@ const SignInForm = () => {
 
     return (
         <section className={styles.signin__wrapper}>
-            <form onSubmit={handleSignin} className={styles.signin__form}>
-                <fieldset className={styles.signin__form_fieldset}>
+            <form onSubmit={handleSignin}>
+                <fieldset>
 
-                    <label htmlFor="username" className={styles.signin__label}>Username
-                        <FaEnvelope className={styles.signin__email_icon}/>
+                    <label htmlFor="username">Username
+                        <FaUser className={styles.signin__email_icon}/>
                         <input
                             type="text"
                             name="username"
@@ -67,7 +67,7 @@ const SignInForm = () => {
                         />
                     </label>
 
-                    <label htmlFor="password" className={styles.signin__label}>Password
+                    <label htmlFor="password">Password
                         <FaLock className={styles.signin__password_icon}/>
                         <input
                             type="password"

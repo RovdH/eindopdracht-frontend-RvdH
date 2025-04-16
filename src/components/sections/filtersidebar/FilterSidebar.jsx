@@ -26,7 +26,7 @@ const FilterSidebar = ({ onUpdateIngredients }) => {
 
     return (
         <aside className={styles.sidebar__wrapper}>
-            <h3 className={styles.sidebar__title}>What items do you have in home?</h3>
+            <h3>What items do you have in home?</h3>
             <section className={styles.sidebar__input}>
                 <input className={styles.sidebar__input_field}
                     type="text"
@@ -39,7 +39,7 @@ const FilterSidebar = ({ onUpdateIngredients }) => {
                 </Button>
             </section>
             <h6>My Added Items</h6>
-            <ul className={styles.sidebar__list}>
+            <ul>
                 {ingredients.map((item) => (
                     <li className={styles.sidebar__list_items}
                         key={item}

@@ -70,7 +70,7 @@ function RecipeComments({recipeId}) {
             <h3>Recipe Comments</h3>
 
             {comments.length === 0 && <p>No comments yet. Be the first!</p>}
-            <ul className={styles.commentList}>
+            <ul>
                 {comments.map((c, index) => (
                     <li key={index} className={styles.commentItem}>
                         <strong>{c.username}</strong> <span>({c.date})</span>
