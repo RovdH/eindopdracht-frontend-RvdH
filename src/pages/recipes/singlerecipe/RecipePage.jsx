@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
 import styles from "./RecipePage.module.css";
 import api from "../../../helpers/api.js";
 import {useAbortController} from "../../../helpers/UseAbortController.jsx";
@@ -9,13 +9,13 @@ import Toggle from "../../../components/toggles/Toggle.jsx";
 import ShareBox from "../../../components/sections/sharebox/ShareBox.jsx";
 
 function RecipePage() {
-    const { id } = useParams();
+    const {id} = useParams();
     const [recipe, setRecipe] = useState(null);
     const [loading, setLoading] = useState(true);
     const [similarRecipes, setSimilarRecipes] = useState([]);
     const [nutrition, setNutrition] = useState([]);
     const [unitSystem, setUnitSystem] = useState("metric");
-    const[convertedIngredients, setConvertedIngredients] = useState([]);
+    const [convertedIngredients, setConvertedIngredients] = useState([]);
 
     const toggleUnits = () =>
         setUnitSystem((prev) => (prev === "metric" ? "imperial" : "metric"));
@@ -31,7 +31,7 @@ function RecipePage() {
                 setRecipe(response.data);
 
                 const similarRes = await api.get(`/recipes/${id}/similar`, {
-                    params: { number: 6 },
+                    params: {number: 6},
                     signal: abortController.signal,
                 });
 
@@ -60,7 +60,7 @@ function RecipePage() {
         fetchRecipe();
     }, [id, abortController]);
 
-       useEffect(() => {
+    useEffect(() => {
         const convertIngredients = async () => {
             if (!recipe?.extendedIngredients) return;
 
@@ -116,7 +116,7 @@ function RecipePage() {
             <main className={styles.single_recipe__wrapper}>
                 <section className={styles.single_recipe__list}>
                     <div className={styles.unit_toggle}>
-                        <Toggle isOn={unitSystem === "imperial"} onToggle={toggleUnits} />
+                        <Toggle isOn={unitSystem === "imperial"} onToggle={toggleUnits}/>
                     </div>
 
                     <h2>Ingredients</h2>
@@ -143,10 +143,10 @@ function RecipePage() {
                 <section className={styles.single_recipe__prep}>
                     <h2>Preparation</h2>
                     <div
-                        dangerouslySetInnerHTML={{ __html: recipe.instructions }}
+                        dangerouslySetInnerHTML={{__html: recipe.instructions}}
                     />
                 </section>
-                <section><RecipeComments className={styles.single_recipe__comments} recipeId={id} /><ShareBox/></section>
+                <section><RecipeComments className={styles.single_recipe__comments} recipeId={id}/><ShareBox/></section>
             </main>
             <div className={styles.single_recipe__local_footer}>
                 {similarRecipes.length > 0 && (
@@ -154,7 +154,7 @@ function RecipePage() {
                         <h2>Similar Recipes</h2>
                         <div className={styles.single_recipe__grid}>
                             {similarRecipes.slice(0, 3).map((recipe) => (
-                                <RecipeCard key={recipe.id} recipe={recipe} />
+                                <RecipeCard key={recipe.id} recipe={recipe}/>
                             ))}
                         </div>
                     </section>

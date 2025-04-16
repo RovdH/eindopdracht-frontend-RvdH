@@ -5,14 +5,13 @@ import {TalkToUs} from "../../components/cards/talk-to-us/TalkToUs.jsx";
 
 function Contact() {
     return (
-        <>
-            <header className={styles.contact__header}><TitleBar/></header>
-            <main className={styles.contact__main}>
-                <ContactForm/>
+
+            <main className={styles.contact__main}><TitleBar/>
+                <section className={styles.contact__input}> <ContactForm/>
               <TalkToUs/>
+                </section>
             </main>
-        </>
-    )
+        )
 }
 
 export default Contact

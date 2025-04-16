@@ -28,7 +28,7 @@ const EmailOptIn = () => {
             <form onSubmit={handleSubmit} noValidate>
                 <fieldset>
                     <legend><h5>Subscribe for food inspiration</h5></legend>
-                    <label htmlFor="email">
+                    <label>
                         <FaEnvelope className={styles.email__optin_icon}/> <input
                             type="email"
                             id="id-email-input"

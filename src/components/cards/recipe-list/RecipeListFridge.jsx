@@ -3,11 +3,14 @@ import api from "../../../helpers/api.js";
 import RecipeCard from "../RecipeCard.jsx";
 import styles from "./RecipeListFridge.module.css"
 import Button from "../../buttons/Button.jsx";
+import {useAbortController} from "../../../helpers/UseAbortController.jsx";
 
 const RecipeListFridge = ({ingredients = [], number = 8, setNumber}) => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+
+    const abortController = useAbortController();
 
     useEffect(() => {
         const fetchRecipes = async () => {
@@ -19,25 +22,23 @@ const RecipeListFridge = ({ingredients = [], number = 8, setNumber}) => {
                 ignorePantry: true,
             };
 
-            console.log("API Request Params:", params);
-
             try {
-                const response = await api.get('/recipes/findByIngredients', {params});
-                console.log("API Response:", response.data);
+                const response = await api.get('/recipes/findByIngredients', {params, signal:abortController.signal,});
                 setRecipes(response.data || []);
             } catch (error) {
-                console.error('Error fetching recipes:', error);
-                setErrorMessage(error.message);
+                if (error.name !== 'AbortError') {
+                    setErrorMessage(error.message);
+                }
             } finally {
                 setLoading(false);
             }
         };
 
         fetchRecipes();
-    }, [ingredients, number]);
+    }, [ingredients, number, abortController]);
 
     return (
-        <div className={styles.recipe__wrapper}>
+        <main className={styles.recipe__wrapper}>
             <section className={styles.recipe_list}>
                 {loading ? <p>Loading...</p> : (
                     recipes.length > 0 ? (
@@ -52,14 +53,14 @@ const RecipeListFridge = ({ingredients = [], number = 8, setNumber}) => {
             </section>
 
 
-                <section className={styles.recipe__list_more}>
-                    {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
-                    {!loading && recipes.length > 0 && (
+            <section className={styles.recipe__list_more}>
+                {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
+                {!loading && recipes.length > 0 && (
                     <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 6)}>Load More</Button>
-                    )}
-                </section>
+                )}
+            </section>
 
-        </div>
+        </main>
     );
 };
 

@@ -1,11 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import {useContext, useEffect, useState} from "react";
 import styles from "./RecipeComments.module.css";
-import { AuthContext } from "../../context/auth/AuthContext.jsx";
+import {AuthContext} from "../../context/auth/AuthContext.jsx";
 import Button from "../../buttons/Button.jsx";
 import {Link} from "react-router-dom";
 
-function RecipeComments({ recipeId }) {
-    const { isAuth, user } = useContext(AuthContext);
+function RecipeComments({recipeId}) {
+    const {isAuth, user} = useContext(AuthContext);
     const [comments, setComments] = useState([]);
     const [userComment, setUserComment] = useState("");
     const [infoMessage, setInfoMessage] = useState("");
@@ -96,7 +96,7 @@ function RecipeComments({ recipeId }) {
             </ul>
 
             {isAuth && !currentCommentId && (
-                <div className={styles.recipe_comments__input}>
+                <article className={styles.recipe_comments__input}>
                     <textarea
                         value={userComment}
                         onChange={(e) => setUserComment(e.target.value)}
@@ -107,13 +107,13 @@ function RecipeComments({ recipeId }) {
                     <Button variant={"btn_darkgreen"} onClick={handleCommentSubmit}>
                         Post Comment
                     </Button>
-                </div>
+                </article>
             )}
 
             {!isAuth && (
-                <div className={styles.guestMessage}>
+                <article className={styles.guestMessage}>
                     <p>You need to <Link to={"/sign-in"}>sign in</Link> to post a comment.</p>
-                </div>
+                </article>
             )}
 
             {infoMessage && <p className={styles.info}>{infoMessage}</p>}

@@ -11,7 +11,7 @@ export const TalkToUs = () => {
             </article>
 
             <article className={styles.talkto_us_phone}>
-                <h4 className={styles.talkto_us_h4}> <FaPhone className={styles.talkto_us_icon}/> Phone</h4>
+                <h4 className={styles.talkto_us_h4}><FaPhone className={styles.talkto_us_icon}/> Phone</h4>
                 <p>Call text or WhatsApp us on:<span className={styles.talkto_us_span}>+31 6 52252252</span></p>
             </article>
         </section>

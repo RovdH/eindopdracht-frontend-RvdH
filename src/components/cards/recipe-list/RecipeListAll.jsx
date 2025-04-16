@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import api from "../../../helpers/api.js";
 import RecipeCard from "../RecipeCard.jsx";
 import styles from "./RecipeListAll.module.css"
 import Button from "../../buttons/Button.jsx";
+import {useAbortController} from "../../../helpers/UseAbortController.jsx";
 
 const RecipeListAll = ({searchQuery, filters, number = 9, setNumber}) => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
 
+    const abortController = useAbortController();
 
     useEffect(() => {
-        console.log("Filters being used in API call:", filters);
     }, [filters]);
 
     useEffect(() => {
@@ -25,43 +26,41 @@ const RecipeListAll = ({searchQuery, filters, number = 9, setNumber}) => {
                 fillIngredients: false,
             };
 
-            console.log("API Request Params:", params);
-
             try {
-                const response = await api.get('/recipes/complexSearch', { params });
-                console.log("API Response:", response.data);
+                const response = await api.get('/recipes/complexSearch', {params, signal: abortController.signal});
                 setRecipes(response.data.results);
             } catch (error) {
-                console.error('Error fetching recipes:', error);
-                setErrorMessage(error.message);
+                if (error.name !== 'AbortError') {
+                    setErrorMessage(error.message);
+                }
             } finally {
                 setLoading(false);
             }
         };
 
         fetchRecipes();
-    }, [searchQuery, filters, number]);
+    }, [searchQuery, filters, number, abortController]);
 
     return (
-        <div className={styles.recipe__wrapper}>
-            <section className={styles.recipe_list}>
-            {loading ? <p>Loading recipes...</p> : (
-                recipes.length > 0 ? (
-                    recipes.map((recipe) => (
-                        <RecipeCard key={recipe.id} recipe={recipe}/>
-                    ))
-                ) : (
-                    <p className={styles.recipe__list_notfound}>No recipes found.</p>
-                )
-            )}
-            </section>
-    <section className={styles.recipe__list_more}>
-        {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
-        {!loading && recipes.length > 0 && (
-            <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 6)}>Load More</Button>
-        )}
-    </section>
-        </div>
+        <main className={styles.recipe__wrapper}>
+            <article className={styles.recipe_list}>
+                {loading ? <p>Loading recipes...</p> : (
+                    recipes.length > 0 ? (
+                        recipes.map((recipe) => (
+                            <RecipeCard key={recipe.id} recipe={recipe}/>
+                        ))
+                    ) : (
+                        <p className={styles.recipe__list_notfound}>No recipes found.</p>
+                    )
+                )}
+            </article>
+            <article className={styles.recipe__list_more}>
+                {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
+                {!loading && recipes.length > 0 && (
+                    <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 6)}>Load More</Button>
+                )}
+            </article>
+        </main>
     );
 };
 

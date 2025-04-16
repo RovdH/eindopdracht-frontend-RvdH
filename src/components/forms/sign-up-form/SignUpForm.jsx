@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import styles from '../sign-in-form/SignInForm.module.css';
-import { FaEnvelope, FaLock, FaUser } from 'react-icons/fa';
+import {FaEnvelope, FaLock, FaUser} from 'react-icons/fa';
 import SignInButton from "../../buttons/SigninButton.jsx";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const SignUpForm = () => {
     const [username, setUsername] = useState('');
@@ -81,7 +81,7 @@ const SignUpForm = () => {
                             name="email"
                             placeholder="Enter Email"
                             value={email}
-                            onChange={(e)=>setEmail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value)}
                             className={styles.email_input}
                             required
                         />

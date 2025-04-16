@@ -1,5 +1,4 @@
 import {createContext, useEffect, useState} from 'react';
-import {useNavigate} from "react-router-dom";
 import {isValidToken} from "../../../helpers/isValidToken.js";
 import axios from "axios";
 
@@ -7,7 +6,6 @@ export const AuthContext = createContext(null);
 
 export function AuthProvider({children}) {
     const [auth, setAuth] = useState({isAuth: false, user: null, status: "pending"});
-    const navigate = useNavigate();
 
     useEffect(() => {
             const storedToken = localStorage.getItem("token")
@@ -44,7 +42,7 @@ export function AuthProvider({children}) {
                 status: "done",
             });
         } catch (error) {
-            console.log(error)
+            console.error(error)
         }
     };
 
@@ -55,7 +53,6 @@ export function AuthProvider({children}) {
             user: null,
             status: "done",
         });
-        navigate("/");
     };
 
     const data = {

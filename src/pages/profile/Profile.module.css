@@ -1,10 +1,13 @@
 .profile__wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    padding: 20px;
+    justify-content: center;
+    align-items: flex-start;
     width: 100%;
-    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 30px auto;
+    column-gap: 50px;
+    padding: 20px;
 }
 
 

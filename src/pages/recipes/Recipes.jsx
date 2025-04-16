@@ -18,15 +18,19 @@ function Recipes() {
 
     return (
         <>
-            <TitleBar />
-            <section className={styles.recipes__search_filters}>
-                <SearchFilters onSearch={handleSearch}
-                onFilterChange={handleFilterChange}
-                filters={filters}
-                />
-            </section>
-            <RecipeListAll searchQuery={searchQuery} filters={filters} number={number} setNumber={setNumber} />
+            <header><TitleBar/></header>
+            <main>
+                <section className={styles.recipes__search_filters}>
+                    <SearchFilters onSearch={handleSearch}
+                                   onFilterChange={handleFilterChange}
+                                   filters={filters}
+                    />
+                </section>
+                <section><RecipeListAll searchQuery={searchQuery} filters={filters} number={number}
+                                        setNumber={setNumber}/></section>
+            </main>
         </>
     )
 }
+
 export default Recipes;
