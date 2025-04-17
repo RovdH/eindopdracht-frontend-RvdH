@@ -5,7 +5,7 @@ import styles from "./RecipeListAll.module.css"
 import Button from "../../buttons/Button.jsx";
 import {useAbortController} from "../../../helpers/UseAbortController.jsx";
 
-const RecipeListAll = ({searchQuery, filters, number = 9, setNumber}) => {
+const RecipeListAll = ({searchQuery, filters, number = 1, setNumber}) => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");

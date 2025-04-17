@@ -5,7 +5,7 @@ import styles from "./RecipeListFridge.module.css"
 import Button from "../../buttons/Button.jsx";
 import {useAbortController} from "../../../helpers/UseAbortController.jsx";
 
-const RecipeListFridge = ({ingredients = [], number = 8, setNumber}) => {
+const RecipeListFridge = ({ingredients = [], number = 1, setNumber}) => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");

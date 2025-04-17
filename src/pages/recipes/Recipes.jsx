@@ -7,7 +7,7 @@ import SearchFilters from "../../components/sections/filterbartop/SearchFilters.
 function Recipes() {
     const [searchQuery, setSearchQuery] = useState("");
     const [filters, setFilters] = useState({});
-    const [number, setNumber] = useState(6);
+    const [number, setNumber] = useState(1);
 
     const handleSearch = (query) => {
         setSearchQuery(query);

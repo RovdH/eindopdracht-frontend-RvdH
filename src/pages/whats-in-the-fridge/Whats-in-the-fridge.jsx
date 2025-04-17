@@ -6,7 +6,7 @@ import {useState} from "react";
 
 function WhatsInTheFridge() {
     const [ingredients, setIngredients] = useState([]);
-    const [number, setNumber] = useState(9);
+    const [number, setNumber] = useState(1);
 
     const updateIngredients = (newIngredients) => {
         setIngredients(newIngredients);

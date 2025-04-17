@@ -36,7 +36,8 @@ const Navbar = () => {
             </ul>
 
             {menuOpen && (
-                <aside className={styles.mobile_menu}>
+                <div className={styles.mobile_overlay} onClick={() => setMenuOpen(false)}>
+                <aside className={styles.mobile_menu} onClick={(e) => e.stopPropagation()}>
                     {!user ? (
                         <div>
                             <ul>
@@ -59,6 +60,7 @@ const Navbar = () => {
                         </div>
                     )}
                 </aside>
+                </div>
             )}
         </nav>
     )

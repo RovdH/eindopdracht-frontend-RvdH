@@ -21,7 +21,7 @@ const Footer = () => {
                         <span>Newtonlaan 247, 3584BH Utrecht</span>
                         <span>030-3073200 - <a href="mailto:contact@novi.nl>contact@novi.nl">Contact@novi.nl</a></span>
                     </p>
-                    <ShareBox/>
+                    <ShareBox variant={"light"}/>
                 </address>
                 <article className={styles.footer__email_optin}><EmailOptin/></article>
             </section>
