@@ -1,9 +1,9 @@
 # LazyChef Frontend Eindopdracht
-
+<p><img src="./public/screenshots/LazyChef-app-screenshot-2.png" alt="Logo Screenshot" width="300"/></p>
 ## Inleiding
 LazyChef is een interactieve webapplicatie die op basis van stemming, eetgezelschap en beschikbaarheid van ingrediënten passende kookrecepten voorstelt. Daarnaast kun je zoeken in alle recepten, favoriete recepten opslaan en recepten filteren op ingrediënten in je koelkast.
 
-![Screenshot van de belangrijkste pagina (Home)](./screenshot-home.png)
+<p><img src="./public/screenshots/LazyChef-app-screenshot-4.png" alt="Home Screenshot" width="200"/><img src="./public/screenshots/LazyChef-app-screenshot-1.png" alt="Recipes Screenshot" width="600"/></p>
 
 ## Benodigdheden
 Voordat je de applicatie kunt draaien, heb je het volgende nodig:
