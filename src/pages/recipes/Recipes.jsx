@@ -1,4 +1,4 @@
-import RecipeListAll from '../../components/cards/recipe-list/RecipeListAll.jsx';
+import RecipeListAll from '../../components/sections/recipe-list/RecipeListAll.jsx';
 import TitleBar from "../../components/sections/titlebar/TitleBar.jsx";
 import {useState} from "react";
 import styles from "./Recipes.module.css";

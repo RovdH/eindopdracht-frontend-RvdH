@@ -1,10 +1,30 @@
 .sharebox__wrapper {
-    margin-top: 20px;
-    padding: 10px;
+    margin: 5px 0;
+    padding: 0;
 }
 
-.sharebox__buttons a,
-.sharebox__buttons {
+.sharebox__title {
+    color: white;
+    text-align: center;
+}
+
+/* Variant: Dark Text */
+.dark {
+    margin-top: 5px;
+    padding: 5px;
+    text-align: left;
+    color: var(--secondary-color);
+}
+
+/*Variant: Light Text*/
+.light {
+    margin: 10px 0;
+    padding: 5px 0;
+    text-align: left;
+    color: white;
+}
+
+.sharebox__buttons a {
     padding: 8px 12px;
     border: none;
     border-radius: 5px;
@@ -12,6 +32,10 @@
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
+}
+
+.sharebox__buttons {
+    padding: 5px 0;
 }
 
 .facebook {

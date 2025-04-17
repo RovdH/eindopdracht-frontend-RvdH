@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import Button from "../../buttons/Button.jsx";
-import styles from '../sign-in-form/SignInForm.module.css';
+import Button from '../../buttons/Button.jsx';
+import styles from './UpdateProfileForm.module.css'
 import {FaEnvelope, FaLock} from "react-icons/fa";
 
 const UpdateProfileForm = ({currentUser, onProfileUpdate}) => {
@@ -59,11 +59,11 @@ const UpdateProfileForm = ({currentUser, onProfileUpdate}) => {
     };
 
     return (
-        <section className={styles.signin__wrapper}>
-            <form onSubmit={handleUpdateProfile} className={styles.signin__form}>
-                <fieldset className={styles.signin__form_fieldset}>
-                    <label htmlFor="email" className={styles.signin__label}>E-mail
-                        <FaEnvelope className={styles.signin__email_icon}/>
+        <section className={styles.update_profile__wrapper}>
+            <form onSubmit={handleUpdateProfile}>
+                <fieldset>
+                    <label htmlFor="email">E-mail
+                        <FaEnvelope className={styles.update_profile__email_icon}/>
                         <input
                             type="email"
                             name="email"
@@ -74,8 +74,8 @@ const UpdateProfileForm = ({currentUser, onProfileUpdate}) => {
                         />
                     </label>
 
-                    <label htmlFor="password" className={styles.signin__label}>Password
-                        <FaLock className={styles.signin__password_icon}/>
+                    <label htmlFor="password">Password
+                        <FaLock className={styles.update_profile__password_icon}/>
                         <input
                             type="password"
                             name="password"

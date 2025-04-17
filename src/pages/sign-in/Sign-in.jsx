@@ -8,8 +8,8 @@ function SignIn() {
 
     return (
         <main className={styles.signin__wrapper}>
-            <section className={styles.signin__mobile_header}><img src={Kipsalade} alt="Kipsalade"
-                                                                   className={styles.signin__mobimg}/></section>
+            <section className={styles.signin__mobile_header}>
+                <img src={Kipsalade} alt="Kipsalade" className={styles.signin__mobimg}/></section>
             <article className={styles.signin__content}>
                 <div className={styles.signin__mobile_heading}>
                     <blockquote className={styles.signin__quote}>YOUR RECIPES ON THE GO</blockquote>

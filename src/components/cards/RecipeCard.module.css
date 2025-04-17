@@ -2,6 +2,7 @@
     position: relative;
     padding: 5px;
     width: 100%;
+    max-width: 580px;
     margin: 15px;
     text-align: left;
     color: var(--secondary-color);
@@ -48,6 +49,24 @@
     line-height: 0;
     border: 1px solid var(--primary-color);
     border-radius: 50%;
+}
+
+.recipe__card_message {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #fffae6;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    animation: fadein 0.3s ease-in-out;
+}
+
+@keyframes fadein {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {

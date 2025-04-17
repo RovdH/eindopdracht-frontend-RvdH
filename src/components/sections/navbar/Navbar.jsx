@@ -1,6 +1,6 @@
 import {useContext, useState} from "react";
 import styles from './Navbar.module.css';
-import {renderNavLinks} from "../../../helpers/RenderNavLinks.jsx";
+import {RenderNavLinks} from "../../../helpers/RenderNavLinks.jsx";
 import {routes} from "../../../routes/routes.jsx";
 import LogoLazyChef from '/src/assets/logo/logo_lazychef.svg?react';
 import Button from "../../buttons/Button.jsx";
@@ -19,7 +19,7 @@ const Navbar = () => {
             </div>
             <Link to={"/"}><LogoLazyChef className={styles.logo} to={"/"}/></Link>
             <ul className={styles.nav__menu_list}>
-                {renderNavLinks(routes)}
+                {RenderNavLinks(routes)}
             </ul>
             <ul className={styles.nav__menu_btn}>
                 {!user ? (
@@ -29,18 +29,19 @@ const Navbar = () => {
                     </>
                 ) : (
                     <>
-                        <li>Hi 👋 {user.username}<Button variant="btn_lightgreen" onClick={signout}>Sign Out</Button>
+                        <li>Hi 👋 {user.username}&nbsp;<Button variant="btn_lightgreen" onClick={signout}>Sign Out</Button>
                         </li>
                     </>
                 )}
             </ul>
 
             {menuOpen && (
-                <aside className={styles.mobile_menu}>
+                <div className={styles.mobile_overlay} onClick={() => setMenuOpen(false)}>
+                <aside className={styles.mobile_menu} onClick={(e) => e.stopPropagation()}>
                     {!user ? (
                         <div>
-                            <ul className={styles.mobile__menu_list}>
-                                {renderNavLinks(routes)}
+                            <ul>
+                                {RenderNavLinks(routes)}
                                 <li className={styles.mobile__li_button}><Button variant="btn_darkgreen" to="/sign-up">Sign
                                     Up</Button></li>
                                 <li className={styles.mobile__li_button}><Button variant="btn_lightgreen" to="/sign-in">Sign
@@ -49,8 +50,8 @@ const Navbar = () => {
                         </div>
                     ) : (
                         <div>
-                            <ul className={styles.mobile__menu_list}>
-                                {renderNavLinks(routes)}
+                            <ul>
+                                {RenderNavLinks(routes)}
                                 <li className={styles.mobile__li_button}>
                                     Hi 👋 {user.username}
                                     <Button variant="btn_lightgreen" onClick={signout}>Sign Out</Button>
@@ -59,6 +60,7 @@ const Navbar = () => {
                         </div>
                     )}
                 </aside>
+                </div>
             )}
         </nav>
     )

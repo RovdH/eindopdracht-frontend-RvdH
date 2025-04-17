@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import api from "../../../helpers/api.js";
-import RecipeCard from "../RecipeCard.jsx";
+import RecipeCard from "../../cards/RecipeCard.jsx";
 import styles from "./RecipeListFridge.module.css"
 import Button from "../../buttons/Button.jsx";
 import {useAbortController} from "../../../helpers/UseAbortController.jsx";
 
-const RecipeListFridge = ({ingredients = [], number = 8, setNumber}) => {
+const RecipeListFridge = ({ingredients = [], number = 6, setNumber}) => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -26,15 +26,14 @@ const RecipeListFridge = ({ingredients = [], number = 8, setNumber}) => {
                 const response = await api.get('/recipes/findByIngredients', {params, signal:abortController.signal,});
                 setRecipes(response.data || []);
             } catch (error) {
-                if (error.name !== 'AbortError') {
                     setErrorMessage(error.message);
                 }
-            } finally {
+            finally {
                 setLoading(false);
             }
         };
-
         fetchRecipes();
+
     }, [ingredients, number, abortController]);
 
     return (
@@ -52,14 +51,12 @@ const RecipeListFridge = ({ingredients = [], number = 8, setNumber}) => {
 
             </section>
 
-
-            <section className={styles.recipe__list_more}>
+            <section>
                 {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
                 {!loading && recipes.length > 0 && (
-                    <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 6)}>Load More</Button>
+                    <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 3)}>Load More</Button>
                 )}
             </section>
-
         </main>
     );
 };

@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import api from "../../../helpers/api.js";
-import RecipeCard from "../RecipeCard.jsx";
+import RecipeCard from "../../cards/RecipeCard.jsx";
 import styles from "./RecipeListAll.module.css"
 import Button from "../../buttons/Button.jsx";
 import {useAbortController} from "../../../helpers/UseAbortController.jsx";
 
-const RecipeListAll = ({searchQuery, filters, number = 9, setNumber}) => {
+const RecipeListAll = ({searchQuery, filters, number = 6, setNumber}) => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -54,10 +54,10 @@ const RecipeListAll = ({searchQuery, filters, number = 9, setNumber}) => {
                     )
                 )}
             </article>
-            <article className={styles.recipe__list_more}>
+            <article>
                 {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
                 {!loading && recipes.length > 0 && (
-                    <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 6)}>Load More</Button>
+                    <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 3)}>Load More</Button>
                 )}
             </article>
         </main>

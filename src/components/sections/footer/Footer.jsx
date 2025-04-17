@@ -1,6 +1,6 @@
 import styles from './Footer.module.css';
 import {routes} from "../../../routes/routes.jsx";
-import {renderNavLinks} from "../../../helpers/RenderNavLinks.jsx";
+import {RenderNavLinks} from "../../../helpers/RenderNavLinks.jsx";
 import EmailOptin from "../../forms/email-opt-in/EmailOptin.jsx";
 import ShareBox from "../sharebox/ShareBox.jsx";
 
@@ -11,7 +11,7 @@ const Footer = () => {
                 <article>
                     <h5>Usefull links</h5>
                     <ul>
-                        {renderNavLinks(routes)}
+                        {RenderNavLinks(routes)}
                     </ul>
                 </article>
                 <address className={styles.footer__contact}>
@@ -21,7 +21,7 @@ const Footer = () => {
                         <span>Newtonlaan 247, 3584BH Utrecht</span>
                         <span>030-3073200 - <a href="mailto:contact@novi.nl>contact@novi.nl">Contact@novi.nl</a></span>
                     </p>
-                    <ShareBox/>
+                    <ShareBox variant={"light"}/>
                 </address>
                 <article className={styles.footer__email_optin}><EmailOptin/></article>
             </section>

@@ -20,11 +20,11 @@
 }
 
 .myrecipes__list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
-    padding: 10px;
+    width: 100%;
+    justify-items: center;
 }
 
 .myrecipes__list .recipeCard {
@@ -42,5 +42,10 @@
     .profile__wrapper section {
         width: 96%;
         margin: 10px auto;
+    }
+
+    .myrecipes__list {
+        grid-template-columns: 1fr;
+        gap: 5px;
     }
 }

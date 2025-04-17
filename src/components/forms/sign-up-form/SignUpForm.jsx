@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styles from '../sign-in-form/SignInForm.module.css';
+import styles from './SignUpForm.module.css';
 import {FaEnvelope, FaLock, FaUser} from 'react-icons/fa';
 import SignInButton from "../../buttons/SigninButton.jsx";
 import axios from "axios";
@@ -9,6 +9,7 @@ const SignUpForm = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -18,6 +19,7 @@ const SignUpForm = () => {
         if (!email.includes('@')) return "Email has to contain a @.";
         if (username.length < 6) return "Username must contain at least 6 characters.";
         if (password.length < 6) return "Password must contain at least 6 characters.";
+        if (password !== confirmPassword) return "Passwords do not match.";
         return null;
     }
 
@@ -58,11 +60,11 @@ const SignUpForm = () => {
     };
 
     return (
-        <section className={styles.signin__wrapper}>
-            <form onSubmit={handleSignUp} className={styles.signin__form}>
-                <fieldset className={styles.signin__form_fieldset}>
-                    <label htmlFor="username" className={styles.signin__label}>Username
-                        <FaUser className={styles.signin__email_icon}/>
+        <section className={styles.signup__wrapper}>
+            <form onSubmit={handleSignUp}>
+                <fieldset>
+                    <label htmlFor="username">Username
+                        <FaUser className={styles.signup__email_icon}/>
                         <input
                             type="text"
                             name="username"
@@ -74,8 +76,8 @@ const SignUpForm = () => {
                         />
                     </label>
 
-                    <label htmlFor="email" className={styles.signin__label}>E-mail
-                        <FaEnvelope className={styles.signin__email_icon}/>
+                    <label htmlFor="email">E-mail
+                        <FaEnvelope className={styles.signup__email_icon}/>
                         <input
                             type="email"
                             name="email"
@@ -87,14 +89,26 @@ const SignUpForm = () => {
                         />
                     </label>
 
-                    <label htmlFor="password" className={styles.signin__label}>Password
-                        <FaLock className={styles.signin__password_icon}/>
+                    <label htmlFor="password">Password
+                        <FaLock className={styles.signup__password_icon}/>
                         <input
                             type="password"
                             name="password"
                             placeholder="Enter Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            className={styles.password_input}
+                            required
+                        />
+                    </label>
+                    <label htmlFor="confirmPassword">Confirm Password
+                        <FaLock className={styles.signup__password_icon}/>
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            placeholder="Re-enter Password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
                             className={styles.password_input}
                             required
                         />
