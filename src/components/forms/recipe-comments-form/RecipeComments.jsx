@@ -103,6 +103,9 @@ function RecipeComments({recipeId}) {
                         placeholder="Add a comment here..."
                         rows={3}
                         className={styles.recipe_comments__textarea}
+                        id="textarea"
+                        autoComplete="off"
+                        required
                     />
                     <Button variant={"btn_darkgreen"} onClick={handleCommentSubmit}>
                         Post Comment

@@ -60,43 +60,53 @@ export default function ContactForm() {
                 <Input
                     type="text"
                     name="firstName"
+                    id="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
                     className={styles.contact__field_input}
+                    autoComplete="off"
                 />
                 {errors.firstName && <p className={styles.contact__form_errorMessage}>{errors.firstName}</p>}</fieldset>
             <fieldset className={styles.contact__input_wrapper}><label>Last name *</label><FaUser
                 className={styles.contact__field_icon}/><Input
                 type="text"
                 name="lastName"
+                id="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
                 className={styles.contact__field_input}
+                autoComplete="off"
             /></fieldset>
             <fieldset className={styles.contact__input_wrapper}><label>E-mail *</label><FaEnvelope
                 className={styles.contact__field_icon}/><Input
                 type="email"
                 name="email"
+                id="email"
                 value={formData.email}
                 onChange={handleChange}
                 className={styles.contact__field_input}
+                autoComplete="off"
             />
                 {errors.email && <p className={styles.contact__form_errorMessage}>{errors.email}</p>}</fieldset>
             <fieldset className={styles.contact__input_wrapper}><label>Phone Number * </label><FaPhone
                 className={styles.contact__field_icon}/><Input
                 type="tel"
                 name="phone"
+                id="phone"
                 value={formData.phone}
                 onChange={handleChange}
                 className={styles.contact__field_input}
+                autoComplete="off"
             />
                 {errors.phone && <p className={styles.contact__form_errorMessage}>{errors.phone}</p>}</fieldset>
             <fieldset className={styles.contact__input_wrapper}><label>Message </label><FaMessage
                 className={styles.contact__field_icon}/><Textarea
                 name="message"
+                id="message"
                 value={formData.message}
                 onChange={handleChange}
                 className={styles.contact__field_input}
+                autoComplete="off"
             /></fieldset>
             <Button variant="btn_darkgreen" type="submit" disabled={loading}>
                 {loading ? "Submitting..." : "Submit"}

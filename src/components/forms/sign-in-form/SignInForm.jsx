@@ -54,11 +54,12 @@ const SignInForm = () => {
             <form onSubmit={handleSignin}>
                 <fieldset>
 
-                    <label htmlFor="username">Username
+                    <label htmlFor={"username"}>Username
                         <FaUser className={styles.signin__email_icon}/>
                         <input
                             type="text"
                             name="username"
+                            id="username"
                             placeholder="Enter Username"
                             onChange={(e) => setUsername(e.target.value)}
                             className={styles.email_input}
@@ -67,11 +68,12 @@ const SignInForm = () => {
                         />
                     </label>
 
-                    <label htmlFor="password">Password
+                    <label htmlFor={"password"}>Password
                         <FaLock className={styles.signin__password_icon}/>
                         <input
                             type="password"
                             name="password"
+                            id="password"
                             placeholder="Enter Password"
                             onChange={(e) => setPassword(e.target.value)}
                             className={styles.password_input}

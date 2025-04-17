@@ -55,6 +55,8 @@ const SearchFilters = ({onSearch, onFilterChange, filters}) => {
                 <FaSearch className={styles.search__bar_icon}/>
                 <input
                     type="search"
+                    name="search"
+                    id="search-input"
                     placeholder="Search for recipes..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}

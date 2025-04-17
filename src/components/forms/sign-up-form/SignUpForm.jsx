@@ -68,48 +68,56 @@ const SignUpForm = () => {
                         <input
                             type="text"
                             name="username"
+                            id="username"
                             placeholder="Enter Username"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             className={styles.email_input}
+                            autoComplete="off"
                             required
                         />
                     </label>
 
-                    <label htmlFor="email">E-mail
+                    <label htmlFor={"email"}>E-mail
                         <FaEnvelope className={styles.signup__email_icon}/>
                         <input
                             type="email"
                             name="email"
+                            id="email"
                             placeholder="Enter Email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             className={styles.email_input}
+                            autoComplete="off"
                             required
                         />
                     </label>
 
-                    <label htmlFor="password">Password
+                    <label htmlFor={"password"}>Password
                         <FaLock className={styles.signup__password_icon}/>
                         <input
                             type="password"
                             name="password"
+                            id="password"
                             placeholder="Enter Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className={styles.password_input}
+                            autoComplete="off"
                             required
                         />
                     </label>
-                    <label htmlFor="confirmPassword">Confirm Password
+                    <label htmlFor={"confirmpassword"}>Confirm Password
                         <FaLock className={styles.signup__password_icon}/>
                         <input
                             type="password"
                             name="confirmPassword"
+                            id="confirmpassword"
                             placeholder="Re-enter Password"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             className={styles.password_input}
+                            autoComplete="off"
                             required
                         />
                     </label>

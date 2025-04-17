@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Button from "../../buttons/Button.jsx";
 import {FaCheck, FaXmark} from "react-icons/fa6";
 import styles from "./FilterSidebar.module.css"
 
-const FilterSidebar = ({ onUpdateIngredients }) => {
+const FilterSidebar = ({onUpdateIngredients}) => {
     const [ingredient, setIngredient] = useState("");
     const [ingredients, setIngredients] = useState([]);
 
@@ -29,10 +29,12 @@ const FilterSidebar = ({ onUpdateIngredients }) => {
             <h3>What items do you have in home?</h3>
             <section className={styles.sidebar__input}>
                 <input className={styles.sidebar__input_field}
-                    type="text"
-                    value={ingredient}
-                    onChange={(e) => setIngredient(e.target.value)}
-                    placeholder="Add an ingredient"
+                       type="text"
+                       name="filter"
+                       id="filter-input"
+                       value={ingredient}
+                       onChange={(e) => setIngredient(e.target.value)}
+                       placeholder="Add an ingredient"
                 />
                 <Button variant={"btn_darkgreen"} onClick={addIngredient}>
                     Add...
@@ -49,7 +51,7 @@ const FilterSidebar = ({ onUpdateIngredients }) => {
                             onClick={() => removeIngredient(item)}
                             className={styles.sidebar__list_icon_x}
                         >
-                            <FaXmark size={20} />
+                            <FaXmark size={20}/>
                         </button>
                     </li>
                 ))}

@@ -58,8 +58,8 @@ function Home() {
                 <main className={styles.home__main}>
                     <form className={styles.home__form_wrapper} onSubmit={(e) => e.preventDefault()}>
                         <h3 className={styles.home__form_title}>Recipe Generator</h3>
-                        <label className={styles.home__form_label}>How's your mood?</label>
-                        <select className={styles.home__form_select} onChange={(e) => setLazy(e.target.value)}>
+                        <label htmlFor={"mood"}  className={styles.home__form_label}>How's your mood?</label>
+                        <select className={styles.home__form_select} id={"mood"} onChange={(e) => setLazy(e.target.value)}>
                             <option value="snack">Snacky timeeeeeee</option>
                             <option value="soup">Soupy de poopy</option>
                             <option value="main course">No NPC im a Main Course</option>
@@ -86,9 +86,9 @@ function Home() {
                             }}>Relax</Button>
                         </fieldset>
 
-                        <label className={styles.home__form_label}>How many people will be leeching off your
+                        <label htmlFor={"partysize"} className={styles.home__form_label}>How many people will be leeching off your
                             goodness:</label>
-                        <input type="range" min="1" max="8" value={party} onChange={(e) => setParty(e.target.value)}/>
+                        <input id={"partysize"} type="range" min="1" max="8" value={party} onChange={(e) => setParty(e.target.value)}/>
                         <span><p className={styles.home__form_label}>{party} Leechers 👨‍👩‍👧‍👦</p></span>
 
                         <Button variant={"btn_darkgray"} onClick={fetchRecipe}>Let's Cook...maybe</Button>
