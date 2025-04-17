@@ -1,9 +1,12 @@
 .witf__wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    row-gap: 10px;
+    justify-content: center;
     align-items: flex-start;
+    width: 100%;
+    max-width: 1800px;
+    margin: 30px auto;
+    column-gap: 10px;
 }
 
 @media (max-width: 1200px) {
