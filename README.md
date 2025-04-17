@@ -1,6 +1,8 @@
 # LazyChef Frontend Eindopdracht
 <p><img src="./public/screenshots/LazyChef-app-screenshot-2.png" alt="Logo Screenshot" width="300"/></p>
+
 ## Inleiding
+
 LazyChef is een interactieve webapplicatie die op basis van stemming, eetgezelschap en beschikbaarheid van ingrediënten passende kookrecepten voorstelt. Daarnaast kun je zoeken in alle recepten, favoriete recepten opslaan en recepten filteren op ingrediënten in je koelkast.
 
 <p><img src="./public/screenshots/LazyChef-app-screenshot-4.png" alt="Home Screenshot" width="200"/><img src="./public/screenshots/LazyChef-app-screenshot-1.png" alt="Recipes Screenshot" width="600"/></p>
@@ -46,8 +48,8 @@ Voordat je de applicatie kunt draaien, heb je het volgende nodig:
       VITE_SPOONACULAR_API_KEY=7eb864d7e7564dd59bab7cdec64d7812
       ```
 
-5. **Applicatie starten (ontwikkelmodus)**
-   1. Ga in de terminal naar de hoofdmap (als je daar nog niet bent).
+4. **Applicatie starten (ontwikkelmodus)**
+   1. Ga naar de terminal en voer stap 2 uit.
    2. Start de ontwikkelserver:
       ```bash
       npm run dev
@@ -55,17 +57,10 @@ Voordat je de applicatie kunt draaien, heb je het volgende nodig:
    3. De applicatie is nu bereikbaar via:
       ```
       http://localhost:5173
-
-6. **Build maken voor productie**
-   - Terminal: `npm run build`
-   - WebStorm npm-paneel: dubbelklik op **build**
-
-7. **Preview van de productieversie**
-   - Terminal: `npm run preview`
-   - WebStorm npm-paneel: dubbelklik op **preview**
+      ```
 
 ## Inloggen
-Voor testdoeleinden kun je op de NOVI backend inloggen met een verzonnen account, zoals bijvoorbeeld:
+De website is gekoppeld aan de NOVI backend. De backend werkt zonder API-key en dus kan je direct registreren en inloggen met een verzonnen account, zoals bijvoorbeeld:
 
 - **Username:** Banaan
 - **Email:** Bananen@inpyjamas.com
@@ -80,9 +75,21 @@ Voor testdoeleinden kun je op de NOVI backend inloggen met een verzonnen account
 | `npm run preview` | Preview van de productieversie lokaal                |
 | `npm run lint`    | Controleert de codebase met ESLint op stijl en fouten |
 
+
+## Demo build stappen:
+
+5. **Build maken voor productie**
+   - Terminal: `npm run build`
+   - WebStorm npm-paneel: dubbelklik op **build**
+
+6. **Preview van de productieversie**
+   - Terminal: `npm run preview`
+   - WebStorm npm-paneel: dubbelklik op **preview**
+
+
 ## Dependencies
 
-Zie hieronder de belangrijkste dependencies uit `package.json`:
+Zie hieronder de belangrijkste dependencies:
 
 ```json
 "dependencies": {
