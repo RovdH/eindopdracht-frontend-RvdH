@@ -13,11 +13,14 @@ Voordat je de applicatie kunt draaien, heb je het volgende nodig:
 - **Node.js** (v18 of hoger) en npm als package manager
 - **WebStorm** als IDE (of een andere met gelijke functies, zoals VS Code)
 - Een **Spoonacular API key** (deze is al meegeleverd)
+- De GIT Repository link:
+  ```
+  https://github.com/RovdH/eindopdracht-frontend-RvdH
+  ```  
 - Een `.env`-bestand in de root van het project met daarin:
   ```env
   VITE_SPOONACULAR_API_KEY=7eb864d7e7564dd59bab7cdec64d7812
   ```
-
   > Kopieer de sleutel en plak deze precies zoals hierboven in je `.env`-bestand.
 
 ## Installatie en gebruik
