@@ -21,7 +21,7 @@ const ProtectedRoute = ({ children }) => {
 };
 
 export const routes =    [
-    { path:'/', label: 'Home', element: <Home/>, inNav: true, title: 'Home', description: 'home is where the chocolate is' },
+    { path:'/', label: 'Home', element: <Home/>, inNav: true, title: 'LazyChef Home', description: 'home is where the chocolate is' },
     { path: '/recipes', label: 'Recipes', element: <Recipes/>,inNav: true, title: 'All Recipes',description: 'Desolve in all the yummy recipes' },
     { path: '/whats-in-the-fridge', label: 'Whats In The Fridge', element: <WhatsInTheFridge/>, inNav: true, title: 'Whats In The Fridge',description: 'No food to waste, i gotta move with haste' },
     { path: '/contact', label: 'Contact', element: <Contact/>, inNav: true, title: 'Contact us', description: 'Get in touch with us for any inquiries.'},
