@@ -8,7 +8,7 @@ import Button from "../../components/buttons/Button.jsx";
 import UpdateProfileForm from "../../components/forms/update-profile-form/UpdateProfileForm.jsx";
 
 function Profile() {
-    const {logout} = useContext(AuthContext);
+    const {signout} = useContext(AuthContext);
     const {favorites} = useContext(FavContext);
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -64,7 +64,7 @@ function Profile() {
                         </ul>
                     </article>
                 )}
-                <Button variant={"btn_darkgreen"} onClick={logout}>Sign Out</Button>
+                <Button variant={"btn_darkgreen"} onClick={signout}>Sign Out</Button>
                 <UpdateProfileForm currentUser={user} onProfileUpdate={handleProfileUpdate}/>
             </section>
 
