@@ -1,4 +1,4 @@
-import RecipeListAll from '../../components/cards/recipe-list/RecipeListAll.jsx';
+import RecipeListAll from '../../components/sections/recipe-list/RecipeListAll.jsx';
 import TitleBar from "../../components/sections/titlebar/TitleBar.jsx";
 import {useState} from "react";
 import styles from "./Recipes.module.css";
@@ -7,7 +7,7 @@ import SearchFilters from "../../components/sections/filterbartop/SearchFilters.
 function Recipes() {
     const [searchQuery, setSearchQuery] = useState("");
     const [filters, setFilters] = useState({});
-    const [number, setNumber] = useState(1);
+    const [number, setNumber] = useState(6);
 
     const handleSearch = (query) => {
         setSearchQuery(query);

@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import api from "../../../helpers/api.js";
-import RecipeCard from "../RecipeCard.jsx";
-import styles from "./RecipeListFridge.module.css"
+import RecipeCard from "../../cards/RecipeCard.jsx";
+import styles from "./RecipeListAll.module.css"
 import Button from "../../buttons/Button.jsx";
 import {useAbortController} from "../../../helpers/UseAbortController.jsx";
 
-const RecipeListFridge = ({ingredients = [], number = 1, setNumber}) => {
+const RecipeListAll = ({searchQuery, filters, number = 6, setNumber}) => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -13,18 +13,22 @@ const RecipeListFridge = ({ingredients = [], number = 1, setNumber}) => {
     const abortController = useAbortController();
 
     useEffect(() => {
+    }, [filters]);
+
+    useEffect(() => {
         const fetchRecipes = async () => {
             setLoading(true);
             const params = {
-                ingredients: ingredients.join(","),
+                query: searchQuery,
                 number: number,
-                ranking: 1,
-                ignorePantry: true,
+                ...filters,
+                addRecipeInformation: true,
+                fillIngredients: false,
             };
 
             try {
-                const response = await api.get('/recipes/findByIngredients', {params, signal:abortController.signal,});
-                setRecipes(response.data || []);
+                const response = await api.get('/recipes/complexSearch', {params, signal: abortController.signal});
+                setRecipes(response.data.results);
             } catch (error) {
                 if (error.name !== 'AbortError') {
                     setErrorMessage(error.message);
@@ -35,33 +39,29 @@ const RecipeListFridge = ({ingredients = [], number = 1, setNumber}) => {
         };
 
         fetchRecipes();
-    }, [ingredients, number, abortController]);
+    }, [searchQuery, filters, number, abortController]);
 
     return (
         <main className={styles.recipe__wrapper}>
-            <section className={styles.recipe_list}>
-                {loading ? <p>Loading...</p> : (
+            <article className={styles.recipe_list}>
+                {loading ? <p>Loading recipes...</p> : (
                     recipes.length > 0 ? (
                         recipes.map((recipe) => (
                             <RecipeCard key={recipe.id} recipe={recipe}/>
                         ))
                     ) : (
-                        <p className={styles.recipe__list_notfound}>Add or remove ingredients to receive a recipe.</p>
+                        <p className={styles.recipe__list_notfound}>No recipes found.</p>
                     )
                 )}
-
-            </section>
-
-
-            <section>
+            </article>
+            <article>
                 {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
                 {!loading && recipes.length > 0 && (
                     <Button variant={"btn_darkgreen"} onClick={() => setNumber(number + 3)}>Load More</Button>
                 )}
-            </section>
-
+            </article>
         </main>
     );
 };
 
-export default RecipeListFridge;
+export default RecipeListAll;

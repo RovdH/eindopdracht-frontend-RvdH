@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Home.module.css';
 import Button from "../../components/buttons/Button.jsx";
-import RecipeListAll from "../../components/cards/recipe-list/RecipeListAll.jsx";
+import RecipeListAll from "../../components/sections/recipe-list/RecipeListAll.jsx";
 import api from "../../helpers/api.js";
 import RecipeCard from "../../components/cards/RecipeCard.jsx";
 import {useAbortController} from "../../helpers/UseAbortController.jsx";
@@ -115,9 +115,9 @@ function Home() {
 
                     <section className={styles.home__latest_recipelist}>
                         <h2>Latest Recipes</h2>
-                        <p>Discover quick, delicious recipes tailored to your taste and lifestyle. Because great meals
+                        <p>Discover quick, delicious recipes tailored to your Lazyness. Because great meals
                             should be easy and enjoyable!</p>
-                        <RecipeListAll/>
+                        <RecipeListAll number={3}/>
                     </section>
                 </main>
             </div>

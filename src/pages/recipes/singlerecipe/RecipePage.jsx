@@ -12,8 +12,8 @@ function RecipePage() {
     const {id} = useParams();
     const [recipe, setRecipe] = useState(null);
     const [loading, setLoading] = useState(true);
-    // const [similarRecipes, setSimilarRecipes] = useState([]);
-    // const [nutrition, setNutrition] = useState([]);
+    const [similarRecipes, setSimilarRecipes] = useState([]);
+    const [nutrition, setNutrition] = useState([]);
     const [unitSystem, setUnitSystem] = useState("metric");
     const [convertedIngredients, setConvertedIngredients] = useState([]);
 
@@ -30,22 +30,22 @@ function RecipePage() {
                 });
                 setRecipe(response.data);
 
-                // const similarRes = await api.get(`/recipes/${id}/similar`, {
-                //     params: {number: 3},
-                //     signal: abortController.signal,
-                // });
+                const similarRes = await api.get(`/recipes/${id}/similar`, {
+                    params: {number: 3},
+                    signal: abortController.signal,
+                });
 
-                // const formatted = similarRes.data.map((r) => ({
-                //     ...r,
-                //     image: `https://spoonacular.com/recipeImages/${r.id}-312x231.jpg`,
-                // }));
+                const formatted = similarRes.data.map((r) => ({
+                    ...r,
+                    image: `https://spoonacular.com/recipeImages/${r.id}-312x231.jpg`,
+                }));
 
-                // setSimilarRecipes(formatted);
+                setSimilarRecipes(formatted);
 
-                // const nutritionRes = await api.get(`/recipes/${id}/nutritionWidget.json`, {
-                //     signal: abortController.signal,
-                // });
-                // setNutrition(nutritionRes.data);
+                const nutritionRes = await api.get(`/recipes/${id}/nutritionWidget.json`, {
+                    signal: abortController.signal,
+                });
+                setNutrition(nutritionRes.data);
 
 
             } catch (error) {
@@ -127,18 +127,17 @@ function RecipePage() {
                             ))}
                         </ul>
                     </article>
-                    <article><h2>Nutrition test</h2></article>
-                    {/*{nutrition && (*/}
-                    {/*    <article>*/}
-                    {/*        <h2>Nutrition Facts</h2>*/}
-                    {/*        <ul>*/}
-                    {/*            <li><strong>Calories:</strong> {nutrition.calories}</li>*/}
-                    {/*            <li><strong>Carbs:</strong> {nutrition.carbs}</li>*/}
-                    {/*            <li><strong>Fat:</strong> {nutrition.fat}</li>*/}
-                    {/*            <li><strong>Protein:</strong> {nutrition.protein}</li>*/}
-                    {/*        </ul>*/}
-                    {/*    </article>*/}
-                    {/*)}*/}
+                    {nutrition && (
+                        <article>
+                            <h2>Nutrition Facts</h2>
+                            <ul>
+                                <li><strong>Calories:</strong> {nutrition.calories}</li>
+                                <li><strong>Carbs:</strong> {nutrition.carbs}</li>
+                                <li><strong>Fat:</strong> {nutrition.fat}</li>
+                                <li><strong>Protein:</strong> {nutrition.protein}</li>
+                            </ul>
+                        </article>
+                    )}
                 </section>
 
                 <section className={styles.single_recipe__prep}>
@@ -152,18 +151,18 @@ function RecipePage() {
                     <ShareBox variant={"dark"}/>
                 </section>
             </main>
-            {/*<div className={styles.single_recipe__local_footer}>*/}
-            {/*    {similarRecipes.length > 0 && (*/}
-            {/*        <section className={styles.single_recipe__similar}>*/}
-            {/*            <h2>Similar Recipes</h2>*/}
-            {/*            <div className={styles.single_recipe__grid}>*/}
-            {/*                {similarRecipes.slice(0, 3).map((recipe) => (*/}
-            {/*                    <RecipeCard key={recipe.id} recipe={recipe}/>*/}
-            {/*                ))}*/}
-            {/*            </div>*/}
-            {/*        </section>*/}
-            {/*    )}*/}
-            {/*</div>*/}
+            <div className={styles.single_recipe__local_footer}>
+                {similarRecipes.length > 0 && (
+                    <section className={styles.single_recipe__similar}>
+                        <h2>Similar Recipes</h2>
+                        <div className={styles.single_recipe__grid}>
+                            {similarRecipes.slice(0, 3).map((recipe) => (
+                                <RecipeCard key={recipe.id} recipe={recipe}/>
+                            ))}
+                        </div>
+                    </section>
+                )}
+            </div>
         </>
     );
 }
